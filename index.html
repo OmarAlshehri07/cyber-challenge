@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحدي كشف المواقع الاحتيالية | Cybersecurity Awareness Challenge</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Cairo Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090d16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Tablet Aspect Ratio & Glass Base */
+    .tablet-frame {
+      border: 12px solid #1e293b;
+      border-radius: 28px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+
+    /* Cyber Security Clean Card */
+    .cyber-card {
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Amazon Custom Classes */
+    .border-amazon { border-color: #D5D9D9; }
+    .bg-amazon-dark { background-color: #131921; }
+    .bg-amazon-sub { background-color: #232f3e; }
+    .text-amazon-link { color: #007185; }
+    .text-amazon-link:hover { color: #C7511F; text-decoration: underline; }
+    .btn-amazon-yellow { background-color: #FFD814; border-color: #FCD200; color: #0F1111; }
+    .btn-amazon-yellow:hover { background-color: #F7CA00; }
+    .btn-amazon-orange { background-color: #FFA41C; border-color: #FF8F00; color: #0F1111; }
+    .btn-amazon-orange:hover { background-color: #FA8900; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-slate-950">
+
+  <!-- Header / Top Bar -->
+  <header class="bg-slate-900 border-b border-slate-800 px-4 py-3 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 text-xl font-black shadow-lg shadow-emerald-500/20">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div>
+          <h1 class="text-base md:text-lg font-black text-white tracking-wide flex items-center gap-2">
+            معرض الأمن السيبراني
+            <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold px-2 py-0.5 rounded-full">SEC1101</span>
+          </h1>
+          <p class="text-xs text-slate-400">اختبار الدقة لكشف الثغرات والمواقع الاحتيالية المتقدمة</p>
+        </div>
+      </div>
+
+      <!-- Step Indicator Badge -->
+      <div id="topProgressBar" class="hidden items-center gap-2 bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800 text-xs">
+        <span class="text-slate-400">السيناريو:</span>
+        <span id="currentStepText" class="font-extrabold text-emerald-400">1</span>
+        <span class="text-slate-500">/ 7</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dynamic View Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-2 md:p-6 flex flex-col justify-center">
+
+    <!-- ==================== 1. START SCREEN (CYBER SECURITY REDESIGNED) ==================== -->
+    <section id="startScreen" class="animate-fade-in max-w-3xl mx-auto w-full text-center py-8">
+      <div class="cyber-card rounded-3xl p-6 md:p-10 text-slate-100 shadow-2xl relative overflow-hidden">
+        <div class="absolute -top-12 -left-12 w-40 h-40 bg-emerald-500/10 rounded-full blur-2xl"></div>
+        <div class="absolute -bottom-12 -right-12 w-40 h-40 bg-teal-500/10 rounded-full blur-2xl"></div>
+
+        <div class="w-20 h-20 bg-slate-900 text-emerald-400 rounded-3xl flex items-center justify-center text-3xl mx-auto mb-6 shadow-xl border border-emerald-500/30">
+          <i class="fa-solid fa-user-shield"></i>
+        </div>
+
+        <span class="inline-block bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-black px-3.5 py-1 rounded-full mb-3">حماية وتوعية رقمية 🛡️</span>
+        <h2 class="text-2xl md:text-4xl font-black text-white mb-4 leading-tight">
+          تحدي كشف المواقع الاحتيالية 🧐
+        </h2>
+        
+        <!-- التنبيه السيبراني المهم -->
+        <div class="bg-emerald-950/40 border border-emerald-500/30 rounded-2xl p-4 md:p-5 text-right mb-8 space-y-2.5 text-xs md:text-sm text-emerald-200 leading-relaxed">
+          <div class="font-bold text-white flex items-center gap-2 mb-1">
+            <i class="fa-solid fa-triangle-exclamation text-amber-400"></i> تنبيه توضيحي هام:
+          </div>
+          <p class="text-slate-300">
+            هذه المنصات والمعروضات هي <strong>مواقع محاكية بنسبة كبيرة وليست مطابقة للأصل تماماً</strong>، وهي مصممة خصيصاً لأغراض التوعية التدريبية واختبار مهارات كشف الاحتيال الإلكتروني.
+          </p>
+          <p class="text-slate-300">
+            عليك التدقيق بنفسك في تفاصيل شريط العنوان (<code class="text-emerald-400 font-mono">URL</code>)، شهادات الأمان، وتفاصيل المحتوى لاتخاذ قرارك الأمني.
+          </p>
+        </div>
+
+        <button id="startBtn" class="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-base md:text-lg px-10 py-4 rounded-2xl shadow-xl shadow-emerald-950/50 hover:scale-[1.02] active:scale-[0.98] transition flex items-center justify-center gap-3 mx-auto">
+          <span>ابدأ التحدي المتقدم</span>
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== 2. GAMEPLAY SCENARIOS CONTAINER ==================== -->
+    <section id="gameplaySection" class="hidden animate-fade-in flex-col gap-4">
+      
+      <!-- Action & Decision Controller Box Header -->
+      <div id="decisionBox" class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-3 sticky top-16 z-40">
+        <div class="flex items-center gap-3 text-right">
+          <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+          <div>
+            <h3 class="font-black text-sm md:text-base text-white" id="scenarioTitle">عنوان السيناريو</h3>
+            <p class="text-[11px] text-slate-400">افحص المتصفح جيداً وحدد مدى موثوقية الموقع:</p>
+          </div>
+        </div>
+
+        <!-- Decision Action Buttons -->
+        <div id="decisionButtons" class="flex items-center gap-2.5 w-full sm:w-auto justify-end">
+          <button id="btnReal" class="flex-1 sm:flex-initial bg-emerald-600 hover:bg-emerald-500 text-white font-black px-5 py-2.5 rounded-xl text-xs md:text-sm shadow-lg transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-circle-check text-base"></i>
+            <span>موقع حقيقي (Real)</span>
+          </button>
+          <button id="btnFake" class="flex-1 sm:flex-initial bg-rose-600 hover:bg-rose-500 text-white font-black px-5 py-2.5 rounded-xl text-xs md:text-sm shadow-lg transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-base"></i>
+            <span>موقع احتيالي (Fake)</span>
+          </button>
+        </div>
+
+        <!-- Back to Results Button (Only shown in Review Mode) -->
+        <button id="backToResultsBtn" onclick="hideReview()" class="hidden bg-slate-700 hover:bg-slate-600 text-white font-black px-5 py-2.5 rounded-xl text-xs md:text-sm shadow-lg transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-right"></i> العودة للنتائج
+        </button>
+      </div>
+
+      <!-- Simulated Tablet Frame Container -->
+      <div id="browserWindow" class="tablet-frame bg-slate-800 overflow-hidden shadow-2xl">
+        <!-- Tablet Browser Safari/Chrome Simulated Header -->
+        <div id="tabletHeader" class="bg-slate-200 border-b border-slate-300 p-2.5 flex items-center justify-between gap-2 text-xs font-sans text-slate-700" dir="ltr">
+          
+          <!-- Tablet Controls Left -->
+          <div class="flex items-center gap-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="w-3 h-3 rounded-full bg-red-400 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-400 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-green-400 inline-block"></span>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 text-slate-500 ml-2">
+              <i class="fa-solid fa-chevron-left cursor-pointer hover:text-slate-800"></i>
+              <i class="fa-solid fa-chevron-right cursor-pointer hover:text-slate-800"></i>
+              <i class="fa-solid fa-rotate-right cursor-pointer hover:text-slate-800"></i>
+            </div>
+          </div>
+
+          <!-- Realistic Address Bar -->
+          <div class="flex-grow max-w-3xl bg-white border border-slate-300 rounded-lg px-3 py-1.5 flex items-center justify-between shadow-inner">
+            <div class="flex items-center gap-2 text-slate-700 font-mono text-[11px] md:text-xs overflow-hidden text-ellipsis whitespace-nowrap w-full" id="simulatedUrlBar">
+              <!-- Injected by JS -->
+            </div>
+            <i class="fa-solid fa-arrow-rotate-right text-slate-400 text-xs shrink-0 ml-1"></i>
+          </div>
+
+          <!-- Tablet Icons Right -->
+          <div class="flex items-center gap-3 text-slate-500 shrink-0">
+            <i class="fa-solid fa-share-nodes cursor-pointer hover:text-slate-800 hidden sm:inline"></i>
+            <i class="fa-solid fa-plus cursor-pointer hover:text-slate-800 hidden sm:inline"></i>
+            <i class="fa-regular fa-copy cursor-pointer hover:text-slate-800"></i>
+          </div>
+
+        </div>
+
+        <!-- Dynamic Website Content Canvas inside Tablet Viewport -->
+        <div id="scenarioViewport" class="min-h-[580px] bg-white text-slate-900 overflow-x-auto">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+
+      <!-- Feedback Analysis Card -->
+      <div id="feedbackCard" class="hidden animate-fade-in cyber-card rounded-2xl p-5 md:p-6 text-slate-100 shadow-2xl border-2 border-emerald-500 mt-2">
+        <div id="feedbackHeader" class="flex items-center gap-3 mb-3 border-b border-slate-800 pb-3">
+          <!-- Injected header -->
+        </div>
+        <div id="feedbackBody" class="text-xs md:text-sm text-slate-300 leading-relaxed space-y-3">
+          <!-- Injected body -->
+        </div>
+        <div class="mt-5 pt-3 border-t border-slate-800 flex justify-end" id="nextBtnContainer">
+          <button id="nextBtn" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-8 py-3 rounded-xl text-xs md:text-sm shadow-xl flex items-center gap-2 transition hover:scale-[1.02]">
+            <span>الانتقال إلى السيناريو التالي</span>
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================== 3. FINAL RESULTS SCREEN ==================== -->
+    <section id="resultsScreen" class="hidden animate-fade-in max-w-3xl mx-auto w-full text-center py-6">
+      <div class="cyber-card rounded-3xl p-6 md:p-10 text-slate-100 shadow-2xl border border-emerald-500/30">
+        <div class="w-20 h-20 bg-emerald-500/20 text-emerald-400 rounded-3xl flex items-center justify-center text-4xl mx-auto mb-4 border border-emerald-500/30">
+          <i class="fa-solid fa-award"></i>
+        </div>
+
+        <h2 class="text-2xl md:text-3xl font-black text-white mb-2">نتيجة تقييم قوة الملاحظة والدقة</h2>
+        <p class="text-xs md:text-sm text-slate-400 mb-6">مستوى كشف الاحتيال المتقدم والتعرف على ثغرات النطاقات</p>
+
+        <!-- Score Badge Box -->
+        <div class="bg-slate-950 text-white rounded-2xl p-6 mb-8 border border-slate-800 max-w-md mx-auto shadow-inner">
+          <div class="text-xs text-slate-400 mb-1">نقاطك الكلية:</div>
+          <div class="text-5xl font-black text-emerald-400 mb-2" id="finalScoreText">0 / 7</div>
+          <div class="text-sm font-bold text-teal-300" id="awarenessLevelText">خبير في كشف الاحتيال 🛡️</div>
+        </div>
+
+        <!-- Breakdown List -->
+        <div id="resultsBreakdown" class="text-right space-y-3 mb-8 text-xs md:text-sm">
+          <!-- Dynamic breakdown injected here -->
+        </div>
+
+        <button id="restartBtn" class="bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black px-10 py-3.5 rounded-xl shadow-xl hover:scale-[1.02] active:scale-[0.98] transition">
+          إعادة التحدي لزائر جديد 🔄
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 text-[11px] text-center py-3 px-4">
+    <p>معرض الأمن السيبراني للتوعية بالاحتيال الإلكتروني © 2026 - جميع السيناريوهات محاكاة تعليمية لأغراض التدريب والتوعية.</p>
+  </footer>
+
+  <!-- Javascript Logic -->
+  <script>
+    // Global function for Amazon Image Switcher
+    function switchImg(index) {
+      const img = document.getElementById('mainImage');
+      if (img) {
+        if (index === 1) {
+          img.src = 'https://m.media-amazon.com/images/I/71PvCbPVCEL._AC_SL1500_.jpg';
+        } else {
+          img.src = 'https://m.media-amazon.com/images/I/71CnsWldOtL._AC_SL1500_.jpg';
+        }
+      }
+    }
+
+    function submitAramexFakePayment(e) {
+      e.preventDefault();
+      alert('⚠️ تنبيه أمني: هذه محاكاة احتيالية لسرقة بيانات البطاقة البنكية تحت غطاء الرسوم الجمركية!');
+    }
+
+    // Interactive Jadarat Flow Functions
+    let jadaratCurrentView = 'home'; 
+
+    function jadaratGoToJobs() {
+      jadaratCurrentView = 'jobs';
+      updateJadaratContent();
+    }
+
+    function jadaratGoToHome() {
+      jadaratCurrentView = 'home';
+      updateJadaratContent();
+    }
+
+    function jadaratSelectComputerScienceJob() {
+      jadaratCurrentView = 'details';
+      updateJadaratContent();
+    }
+
+    function updateJadaratContent() {
+      const viewport = document.getElementById('scenarioViewport');
+      if (!viewport) return;
+
+      if (jadaratCurrentView === 'home') {
+        viewport.innerHTML = getJadaratHomeHtml();
+      } else if (jadaratCurrentView === 'jobs') {
+        viewport.innerHTML = getJadaratJobsHtml();
+      } else if (jadaratCurrentView === 'details') {
+        viewport.innerHTML = getJadaratDetailsHtml();
+      }
+      viewport.scrollTop = 0;
+    }
+
+    // State Tracking Variables
+    let currentStep = 0;
+    let userScore = 0;
+    const userAnswers = [];
+
+    // HTML Generator Functions
+    function getAmazonHtml(isReal) {
+      const priceVal = isReal ? "9,099.00" : "2,499.00";
+      const oldPriceVal = isReal ? "" : "8,999.00";
+      const discountBadge = isReal ? "" : `<span class="bg-rose-600 text-white font-black px-2 py-0.5 rounded text-xs">-72% خصم لفترة محدودة</span>`;
+      const stockWarning = isReal ? `<p class="text-emerald-700 font-bold text-xs pt-1"><i class="fa-solid fa-circle-check ml-1"></i> متوفر في المخزون</p>` : `<p class="text-rose-600 font-black text-xs pt-1 animate-pulse"><i class="fa-solid fa-triangle-exclamation ml-1"></i> متبقي قطعتين فقط في المخزون!</p>`;
+      const sellerVal = isReal ? "Amazon.sa" : "المستودع الرقمي السريع للاتصالات";
+
+      return `
+        <div class="bg-white text-[#0f1111]" style="font-family: 'Cairo', sans-serif; font-size: 13px;" dir="rtl">
+            <header class="bg-amazon-dark text-white">
+                <div class="max-w-[1500px] mx-auto px-3 py-2 flex items-center justify-between gap-3 text-xs">
+                    <div class="flex items-center gap-4">
+                        <div class="flex flex-col items-start cursor-pointer" dir="ltr">
+                            <span class="text-xl font-black text-white leading-none">amazon<span class="text-amber-400 text-xs">.sa</span></span>
+                        </div>
+                        <div class="hidden md:flex items-center gap-1 text-slate-200">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <p class="text-[10px] text-slate-400 leading-none">التوصيل إلى جدة</p>
+                                <p class="font-bold text-white leading-tight">المملكة العربية السعودية</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-grow max-w-2xl flex rounded overflow-hidden">
+                        <button class="bg-slate-200 text-slate-700 px-2 py-1 text-xs font-bold border-l border-slate-300">الكل</button>
+                        <input type="text" value="آبل آيفون 18 برو ماكس (1 تيرابايت) - عنابي داكن" class="w-full px-2 py-1 text-xs text-slate-900 focus:outline-none" />
+                        <button class="bg-[#febd69] hover:bg-[#f3a847] text-slate-900 px-4">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-4 text-xs">
+                        <div>
+                            <p class="text-[10px] text-slate-300">مرحباً عمر</p>
+                            <p class="font-bold">الحساب والقوائم</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-slate-300">الإرجاع</p>
+                            <p class="font-bold">والطلبات</p>
+                        </div>
+                        <div class="flex items-center gap-1 font-bold">
+                            <i class="fa-solid fa-cart-shopping text-xl text-[#febd69]"></i>
+                            <span>عربة التسوق</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-amazon-sub text-white text-[11px] px-4 py-1 flex items-center justify-between border-t border-slate-700">
+                    <div class="flex items-center gap-4">
+                        <span class="font-bold cursor-pointer"><i class="fa-solid fa-bars ml-1"></i> الكل</span>
+                        <span class="hover:underline cursor-pointer">عروض اليوم</span>
+                        <span class="hover:underline cursor-pointer">خدمة العملاء</span>
+                        <span class="hover:underline cursor-pointer font-bold text-[#febd69]">متجر آبل الرسمي</span>
+                    </div>
+                    <div class="text-slate-300">توصيل مجاني سريع مع Prime</div>
+                </div>
+            </header>
+
+            <div class="border-b border-slate-200 py-1.5 px-6 bg-slate-50">
+                <div class="max-w-[1500px] mx-auto flex items-center gap-5 text-xs text-slate-700 font-bold">
+                    <span class="text-slate-900 font-black">iPhone</span>
+                    <span class="hover:text-amazon-link cursor-pointer">iPhone 18 Pro</span>
+                    <span class="text-amazon-link border-b-2 border-amber-600 pb-0.5">iPhone 18 Pro Max</span>
+                    <span class="hover:text-amazon-link cursor-pointer">iPhone 18</span>
+                    <span class="hover:text-amazon-link cursor-pointer">ملحقات آبل</span>
+                </div>
+            </div>
+
+            <main class="max-w-[1500px] mx-auto px-4 py-3">
+                <div class="text-[11px] text-slate-500 mb-2 flex items-center gap-1">
+                    <span>الإلكترونيات</span>
+                    <i class="fa-solid fa-chevron-left text-[8px]"></i>
+                    <span>الهواتف المحمولة والذكية</span>
+                    <i class="fa-solid fa-chevron-left text-[8px]"></i>
+                    <span>الهواتف الذكية</span>
+                    <i class="fa-solid fa-chevron-left text-[8px]"></i>
+                    <span class="text-slate-800 font-bold">آبل آيفون 18 برو ماكس</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+                    <div class="lg:col-span-5 flex gap-2 order-1">
+                        <div class="flex flex-col gap-1.5 shrink-0">
+                            <button onclick="switchImg(1)" class="w-10 h-12 border-2 border-amber-600 rounded overflow-hidden p-0.5 bg-white shadow-sm">
+                                <img src="https://m.media-amazon.com/images/I/71PvCbPVCEL._AC_SL1500_.jpg" class="w-full h-full object-contain" alt="معاينة 1">
+                            </button>
+                            <button onclick="switchImg(2)" class="w-10 h-12 border border-slate-300 rounded overflow-hidden p-0.5 bg-white">
+                                <img src="https://m.media-amazon.com/images/I/71CnsWldOtL._AC_SL1500_.jpg" class="w-full h-full object-contain" alt="معاينة 2">
+                            </button>
+                        </div>
+
+                        <div class="flex-grow bg-white border border-slate-200 rounded p-2 flex items-center justify-center min-h-[420px]">
+                            <img id="mainImage" src="https://m.media-amazon.com/images/I/71PvCbPVCEL._AC_SL1500_.jpg" class="max-h-[400px] w-auto object-contain" alt="آيفون">
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-4 space-y-2 order-2">
+                        <div>
+                            <a href="#" class="text-xs font-bold text-amazon-link block">زيارة متجر Apple الرسمي</a>
+                            <h1 class="text-base font-bold text-slate-900 leading-snug mt-1">
+                                آبل آيفون 18 برو ماكس 1 تيرابايت من آبل - لون عنابي داكن (Burgundy Titanium)
+                            </h1>
+                        </div>
+
+                        <div class="flex items-center gap-1 text-xs">
+                            <span class="font-bold">4.9</span>
+                            <div class="flex text-amber-500 text-[10px]">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <a href="#" class="text-amazon-link">(1,842 تقييم)</a>
+                            <span class="text-slate-300">|</span>
+                            <span class="bg-slate-100 text-slate-800 text-[10px] px-1.5 py-0.5 rounded font-bold">الأكثر مبيعاً #1</span>
+                        </div>
+
+                        ${!isReal ? `<div class="bg-rose-50 border border-rose-200 p-2 rounded-lg flex items-center justify-between text-xs font-bold text-rose-700"><span>⚡ ينتهي العرض خلال: 03:45:12 ساعات</span>${discountBadge}</div>` : ''}
+
+                        <hr class="border-slate-200 my-1">
+
+                        <div class="space-y-0.5">
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-2xl font-black text-slate-900">${priceVal}</span>
+                                <span class="text-xs font-bold text-slate-700"> ريال</span>
+                                ${!isReal ? `<span class="text-xs text-slate-400 line-through mr-2">${oldPriceVal} ريال</span>` : ''}
+                            </div>
+                            <p class="text-[11px] text-slate-500">جميع الأسعار تشمل ضريبة القيمة المضافة (VAT 15%).</p>
+                            <p class="text-[11px] text-amazon-link font-bold"><i class="fa-solid fa-shield-halved ml-1"></i> ضمان لمدة سنتين من حاسبات العرب (الوكيل المعتمد).</p>
+                        </div>
+
+                        <hr class="border-slate-200 my-1">
+
+                        <div class="space-y-1 text-xs">
+                            <p class="text-slate-600">اللون: <strong class="text-slate-900">عنابي داكن (Burgundy Titanium)</strong></p>
+                            <div class="flex items-center gap-1.5">
+                                <button class="p-1 rounded border-2 border-amber-600 bg-amber-50 flex items-center gap-1 font-bold text-[11px]">
+                                    <span class="w-3.5 h-3.5 rounded-full bg-[#4b222e] inline-block border"></span> عنابي داكن
+                                </button>
+                                <button class="p-1 rounded border border-slate-300 bg-white flex items-center gap-1 text-[11px] text-slate-700">
+                                    <span class="w-3.5 h-3.5 rounded-full bg-[#c5b4a5] inline-block border"></span> صحراوي
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1 text-xs">
+                            <p class="text-slate-600">سعة التخزين: <strong class="text-slate-900">1 تيرابايت (1TB)</strong></p>
+                            <div class="flex items-center gap-1.5">
+                                <button class="px-2 py-1 rounded border border-slate-300 bg-white text-[11px] text-slate-700">256GB</button>
+                                <button class="px-2 py-1 rounded border border-slate-300 bg-white text-[11px] text-slate-700">512GB</button>
+                                <button class="px-2 py-1 rounded border-2 border-amber-600 bg-amber-50 font-bold text-[11px] text-slate-900">1TB</button>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 text-[11px] space-y-1 text-slate-700">
+                            <div class="flex justify-between border-b pb-0.5"><span class="text-slate-500">حجم الشاشة:</span> <span class="font-bold">6.9 بوصة Super Retina XDR</span></div>
+                            <div class="flex justify-between border-b pb-0.5"><span class="text-slate-500">الشريحة:</span> <span class="font-bold">A18 Pro Bionic</span></div>
+                            <div class="flex justify-between border-b pb-0.5"><span class="text-slate-500">نظام الكاميرا:</span> <span class="font-bold">48MP Pro + تقريب 5x بصري</span></div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-3 order-3">
+                        <div class="border border-amazon rounded-lg p-3 space-y-2 bg-white text-xs shadow-xs">
+                            <div class="text-2xl font-black text-slate-900">
+                                ${priceVal}<span class="text-xs font-normal"> ريال</span>
+                            </div>
+
+                            <div class="space-y-1">
+                                <p class="text-amazon-link font-bold">توصيل مجاني غداً</p>
+                                <p class="text-slate-600 text-[11px]">اطلب خلال <strong class="text-emerald-700">4 ساعات و10 دقائق</strong> لتستلم الشحنة غداً في جدة.</p>
+                                ${stockWarning}
+                            </div>
+
+                            <div class="bg-emerald-50 border border-emerald-200 rounded p-2 text-[10px] space-y-1 text-slate-800">
+                                <p class="font-bold text-emerald-900"><i class="fa-solid fa-lock text-emerald-700 ml-1"></i> معاملات آمنة ومحمية</p>
+                                <p class="text-slate-600">الدفع آمن عبر مدى، فيزا، Apple Pay المعترف بها.</p>
+                            </div>
+
+                            <div class="space-y-1.5 pt-1">
+                                <button class="w-full btn-amazon-yellow font-bold py-2 px-3 rounded-full shadow-sm text-xs border">إضافة إلى عربة التسوق</button>
+                                <button class="w-full btn-amazon-orange font-bold py-2 px-3 rounded-full shadow-sm text-xs border">اشتري الآن</button>
+                            </div>
+
+                            <div class="text-[10px] text-slate-600 space-y-1 pt-2 border-t border-slate-200">
+                                <div class="flex justify-between"><span>يشحن من:</span> <span class="font-bold text-slate-800">${sellerVal}</span></div>
+                                <div class="flex justify-between"><span>يباع من:</span> <span class="font-bold text-amazon-link">${sellerVal}</span></div>
+                                <div class="flex justify-between"><span>سياسة الإرجاع:</span> <span class="font-bold text-amazon-link">قابل للإرجاع خلال 15 يوماً</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 border-t border-slate-200 pt-4 max-w-5xl">
+                    <h2 class="text-sm font-bold text-slate-900 mb-2">عن هذه السلعة:</h2>
+                    <ul class="list-disc list-inside text-xs text-slate-700 space-y-1.5 leading-relaxed">
+                        <li><strong class="text-slate-900">تصميم خفيف وقوي من التيتانيوم:</strong> يتميز آيفون 18 برو ماكس بهيكل متين وفاخر من التيتانيوم.</li>
+                        <li><strong class="text-slate-900">شاشة مقاس 6.9 بوصة بلا حدود:</strong> شاشة Super Retina XDR مع تكنولوجيا ProMotion بمعدل 120Hz.</li>
+                        <li><strong class="text-slate-900">شريحة A18 Pro الفائقة:</strong> أداء عالي للألعاب الثقيلة ومميزات الذكاء الاصطناعي.</li>
+                    </ul>
+                </div>
+            </main>
+
+            <footer class="bg-amazon-dark text-slate-300 mt-10 text-xs border-t border-slate-800">
+                <div class="bg-amazon-sub py-2 text-center cursor-pointer font-bold text-white text-xs">العودة إلى الأعلى</div>
+                <div class="max-w-[1500px] mx-auto px-4 py-6 text-center text-slate-400">
+                    © 1996-2026، شركة Amazon.com أو الشركات التابعة لها | جميع الحقوق محفوظة لمتجر أمازون السعودية الرسمي
+                </div>
+            </footer>
+        </div>
+      `;
+    }
+
+    function getJadaratHeader() {
+      return `
+        <header class="bg-white border-b border-slate-200 sticky top-0 z-30" dir="rtl">
+          <div class="bg-emerald-50 border-b border-emerald-100 px-4 py-1.5 text-[11px] text-emerald-900 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+              <span>موقع حكومي مسجل لدى هيئة الحكومة الرقمية <strong class="underline cursor-pointer">كيف تحقق؟</strong></span>
+            </div>
+            <div class="font-mono text-[10px]">24/10/2026</div>
+          </div>
+
+          <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-6">
+              <div class="flex items-center gap-2 cursor-pointer" onclick="jadaratGoToHome()">
+                <div class="text-emerald-700 font-black text-xl flex flex-col items-center leading-none">
+                  <span>جدارات</span>
+                  <span class="text-[9px] text-slate-600 font-bold">JADARAT</span>
+                </div>
+                <i class="fa-solid fa-tree-city text-emerald-700 text-lg"></i>
+              </div>
+
+              <nav class="hidden md:flex items-center gap-6 text-xs font-bold text-slate-700">
+                <button onclick="jadaratGoToHome()" class="hover:text-emerald-700 pb-1">الرئيسية</button>
+                <div class="relative group">
+                  <button onclick="jadaratGoToJobs()" class="text-emerald-700 border-b-2 border-emerald-600 pb-1 flex items-center gap-1 font-black">
+                    <span>الوظائف</span>
+                    <i class="fa-solid fa-chevron-down text-[9px]"></i>
+                  </button>
+                </div>
+                <span class="hover:text-emerald-700 cursor-pointer">عن جدارات <i class="fa-solid fa-chevron-down text-[9px]"></i></span>
+              </nav>
+            </div>
+
+            <div class="flex items-center gap-4 text-xs font-bold text-slate-700">
+              <span class="cursor-pointer flex items-center gap-1"><i class="fa-solid fa-magnifying-glass"></i> بحث</span>
+              <span class="cursor-pointer">English (EN)</span>
+              <button class="bg-emerald-700 hover:bg-emerald-800 text-white px-4 py-2 rounded-xl text-xs shadow-md">تسجيل الدخول</button>
+            </div>
+          </div>
+        </header>
+      `;
+    }
+
+    function getJadaratFooter() {
+      return `
+        <footer class="bg-[#004d40] text-slate-300 pt-12 pb-6 mt-12 text-xs" dir="rtl">
+          <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div class="space-y-2">
+              <h4 class="font-bold text-white text-sm">ملخص</h4>
+              <ul class="space-y-1.5 text-[11px]">
+                <li class="hover:text-white cursor-pointer">عن جدارات</li>
+                <li class="hover:text-white cursor-pointer">الخصوصية وشروط الاستخدام</li>
+                <li class="hover:text-white cursor-pointer">كيفية استخدام المنصة الوطنية للتوظيف</li>
+                <li class="hover:text-white cursor-pointer">الأخبار والأحداث</li>
+              </ul>
+            </div>
+            <div class="space-y-2">
+              <h4 class="font-bold text-white text-sm">روابط مهمة</h4>
+              <ul class="space-y-1.5 text-[11px]">
+                <li class="hover:text-white cursor-pointer">المرصد الوطني للعمل</li>
+                <li class="hover:text-white cursor-pointer">منصة المشاركة الإلكترونية</li>
+                <li class="hover:text-white cursor-pointer">المنصة الوطنية للبيانات المفتوحة</li>
+              </ul>
+            </div>
+            <div class="space-y-2">
+              <h4 class="font-bold text-white text-sm">الدعم والمساعدة</h4>
+              <ul class="space-y-1.5 text-[11px]">
+                <li class="hover:text-white cursor-pointer">مركز العملاء</li>
+                <li class="hover:text-white cursor-pointer">تواصل معنا</li>
+                <li class="hover:text-white cursor-pointer">شارك معنا</li>
+              </ul>
+            </div>
+            <div class="space-y-2">
+              <h4 class="font-bold text-white text-sm">تابعنا على</h4>
+              <div class="flex items-center gap-3 text-lg pt-1">
+                <i class="fa-brands fa-x-twitter cursor-pointer hover:text-white"></i>
+                <i class="fa-brands fa-linkedin cursor-pointer hover:text-white"></i>
+                <i class="fa-brands fa-instagram cursor-pointer hover:text-white"></i>
+              </div>
+            </div>
+          </div>
+          <div class="max-w-7xl mx-auto px-6 pt-6 border-t border-teal-800 flex flex-col md:flex-row items-center justify-between text-[11px]">
+            <p>© 2026 جميع الحقوق محفوظة للمنصة الوطنية الموحدة للتوظيف</p>
+            <div class="flex items-center gap-4 text-slate-400">
+              <span class="cursor-pointer">سياسة الخصوصية</span>
+              <span class="cursor-pointer">شروط الاستخدام</span>
+            </div>
+          </div>
+        </footer>
+      `;
+    }
+
+    function getJadaratHomeHtml() {
+      return `
+        <div class="bg-white text-slate-900 font-sans min-h-full" dir="rtl">
+          ${getJadaratHeader()}
+          <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="rounded-3xl bg-gradient-to-r from-slate-900 via-emerald-950 to-teal-900 text-white p-8 md:p-12 shadow-xl space-y-4">
+              <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs px-3 py-1 rounded-full font-bold">المنصة الوطنية الموحدة للتوظيف</span>
+              <h1 class="text-2xl md:text-4xl font-black leading-tight">بادر بإنشاء ملفك الاحترافي</h1>
+              <p class="text-xs md:text-sm text-slate-300 leading-relaxed max-w-2xl">أكمل ملفك الاحترافي وأضف معلوماتك المهنية والأكاديمية يتيح لك فرص التقديم على وظائف المنصة بكل يسر وسهولة.</p>
+              <div class="pt-2">
+                <button onclick="jadaratGoToJobs()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-black px-8 py-3 rounded-xl text-xs shadow-lg transition">
+                  تصفح الوظائف الآن
+                </button>
+              </div>
+            </div>
+            <div class="mt-12 space-y-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h2 class="text-xl font-black text-slate-900">الوظائف الحديثة</h2>
+                  <p class="text-xs text-slate-500">اختر الوظيفة المناسبة لتخصصك وتعرف على التفاصيل الكاملة</p>
+                </div>
+                <button onclick="jadaratGoToJobs()" class="text-emerald-700 font-bold text-xs hover:underline flex items-center gap-1"><span>عرض الكل</span> <i class="fa-solid fa-arrow-left"></i></button>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white border-2 border-slate-200 rounded-2xl p-5 shadow-sm hover:border-emerald-600 transition space-y-3 cursor-pointer" onclick="jadaratSelectComputerScienceJob()">
+                  <div class="flex items-center justify-between text-xs text-slate-500">
+                    <span class="bg-slate-100 text-slate-800 px-2 py-0.5 rounded font-bold">قطاع خاص</span>
+                    <span>دوام كامل</span>
+                  </div>
+                  <h3 class="font-black text-base text-slate-900">مطور برمجيات وأنظمة (Computer Science)</h3>
+                  <p class="text-xs text-slate-600">شركة التقنية المتقدمة للحلول الرقمية بجدة</p>
+                  <div class="flex items-center gap-2 pt-2 text-[11px] text-emerald-700 font-bold">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <span>مناسب لتخصصات الحاسب الآلي</span>
+                  </div>
+                  <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span class="text-xs font-bold text-emerald-700">الراتب: 12,500 ريال</span>
+                    <button class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-1.5 rounded-lg text-xs">استعراض التفاصيل</button>
+                  </div>
+                </div>
+                <div class="bg-white border-2 border-slate-200 rounded-2xl p-5 shadow-sm transition space-y-3 opacity-75">
+                  <div class="flex items-center justify-between text-xs text-slate-500">
+                    <span class="bg-slate-100 text-slate-800 px-2 py-0.5 rounded font-bold">قطاع خاص</span>
+                    <span>دوام كامل</span>
+                  </div>
+                  <h3 class="font-black text-base text-slate-900">مشرف ميداني</h3>
+                  <p class="text-xs text-slate-600">شركة النمو والتفوق المقاولات</p>
+                  <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span class="text-xs font-bold text-slate-900">المدينة: السودة</span>
+                    <span class="text-xs text-slate-400">غير منطبق للتخصص</span>
+                  </div>
+                </div>
+                <div class="bg-white border-2 border-slate-200 rounded-2xl p-5 shadow-sm transition space-y-3 opacity-75">
+                  <div class="flex items-center justify-between text-xs text-slate-500">
+                    <span class="bg-slate-100 text-slate-800 px-2 py-0.5 rounded font-bold">قطاع خاص</span>
+                    <span>دوام كامل</span>
+                  </div>
+                  <h3 class="font-black text-base text-slate-900">مندوب تطوير الأعمال</h3>
+                  <p class="text-xs text-slate-600">شركة دي جاي تاورز لبرمجة الألياف</p>
+                  <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span class="text-xs font-bold text-slate-900">الرياض</span>
+                    <span class="text-xs text-slate-400">غير منطبق للتخصص</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          ${getJadaratFooter()}
+        </div>
+      `;
+    }
+
+    function getJadaratJobsHtml() {
+      return `
+        <div class="bg-white text-slate-900 font-sans min-h-full" dir="rtl">
+          ${getJadaratHeader()}
+          <div class="max-w-7xl mx-auto px-4 py-8 space-y-6">
+            <div class="flex items-center justify-between bg-slate-50 p-4 rounded-2xl border border-slate-200">
+              <div>
+                <h1 class="text-xl font-black text-slate-900">قائمة الوظائف المتاحة</h1>
+                <p class="text-xs text-slate-500">اختر الوظيفة المناسبة لتخصصك الحاسوبي للوصول إلى تفاصيلها الرسمية</p>
+              </div>
+              <button onclick="jadaratGoToHome()" class="text-xs text-emerald-700 font-bold hover:underline">العودة للرئيسية</button>
+            </div>
+            <div class="flex items-center gap-3 text-xs font-bold">
+              <span class="bg-emerald-600 text-white px-4 py-2 rounded-xl cursor-pointer">جميع تخصصات الحاسب الآلي</span>
+              <span class="bg-slate-100 text-slate-700 px-4 py-2 rounded-xl cursor-pointer hover:bg-slate-200">هندسة البرمجيات</span>
+              <span class="bg-slate-100 text-slate-700 px-4 py-2 rounded-xl cursor-pointer hover:bg-slate-200">علوم الحاسب</span>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+              <div class="bg-white border-2 border-emerald-600 rounded-2xl p-6 shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div class="space-y-2">
+                  <div class="flex items-center gap-2 text-xs">
+                    <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">رسمية ومعتمدة</span>
+                    <span class="text-slate-500">تاريخ النشر: 24/10/2026</span>
+                  </div>
+                  <h2 class="text-lg font-black text-slate-900">مطور برمجيات وأنظمة (Computer Science)</h2>
+                  <p class="text-xs text-slate-600">شركة التقنية المتقدمة للحلول الرقمية | مدينة جدة | الراتب: 12,500 ريال</p>
+                  <p class="text-[11px] text-emerald-700 font-bold"><i class="fa-solid fa-circle-check ml-1"></i> تتطلب درجة البكالوريوس في علوم الحاسب أو تقنية المعلومات.</p>
+                </div>
+                <button onclick="jadaratSelectComputerScienceJob()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-black px-6 py-3 rounded-xl text-xs shadow-lg shrink-0">
+                  عرض تفاصيل الوظيفة الرسمية
+                </button>
+              </div>
+            </div>
+          </div>
+          ${getJadaratFooter()}
+        </div>
+      `;
+    }
+
+    function getJadaratDetailsHtml() {
+      return `
+        <div class="bg-slate-50 text-slate-900 font-sans min-h-full" dir="rtl">
+          ${getJadaratHeader()}
+          <div class="max-w-5xl mx-auto px-4 py-8 space-y-6">
+            <div class="text-[11px] text-slate-500 flex items-center gap-1">
+              <span class="cursor-pointer hover:underline" onclick="jadaratGoToHome()">الرئيسية</span>
+              <i class="fa-solid fa-chevron-left text-[8px]"></i>
+              <span class="cursor-pointer hover:underline" onclick="jadaratGoToJobs()">وظائف قطاع التقنية</span>
+              <i class="fa-solid fa-chevron-left text-[8px]"></i>
+              <span class="text-slate-800 font-bold">تفاصيل الوظيفة-مطور برمجيات</span>
+            </div>
+
+            <!-- Job Title Hero Card -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-xl space-y-4">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h1 class="text-2xl md:text-3xl font-black text-slate-900 mb-2">مطور برمجيات وأنظمة (Computer Science)</h1>
+                  <p class="text-xs text-slate-600">شركة التقنية المتقدمة للحلول الرقمية | <i class="fa-solid fa-location-dot text-emerald-600 mr-1"></i> جدة، السعودية | تاريخ النشر: 24/10/2026</p>
+                </div>
+                <div class="flex items-center gap-2 text-slate-500">
+                  <i class="fa-solid fa-share-nodes cursor-pointer hover:text-emerald-700 p-2 rounded-full bg-slate-100"></i>
+                  <i class="fa-solid fa-print cursor-pointer hover:text-emerald-700 p-2 rounded-full bg-slate-100"></i>
+                </div>
+              </div>
+
+              <!-- Tags Badges with 12,500 SAR salary -->
+              <div class="flex flex-wrap items-center gap-2 text-xs font-bold pt-2">
+                <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 px-3 py-1 rounded-lg">القطاع الخاص</span>
+                <span class="bg-slate-100 text-slate-800 px-3 py-1 rounded-lg">دوام كامل</span>
+                <span class="bg-amber-50 text-amber-800 border border-amber-200 px-3 py-1 rounded-lg font-black text-sm">الراتب الأساسي: 12,500 ريال</span>
+              </div>
+
+              <div class="pt-2 flex items-center justify-between flex-wrap gap-4 border-t border-slate-100 mt-4">
+                <button onclick="document.getElementById('fakeApplicationForm').scrollIntoView({behavior: 'smooth'})" class="bg-emerald-600 hover:bg-emerald-700 text-white font-black px-8 py-3 rounded-xl text-xs shadow-lg transition">
+                  ابدأ التقديم الآن
+                </button>
+                <div class="text-[11px] text-slate-500 flex items-center gap-1">
+                  <i class="fa-solid fa-shield-halved text-emerald-600"></i>
+                  <span>بوابة التوظيف الموحدة</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+              <div class="lg:col-span-2 space-y-6">
+                <!-- الوصف الوظيفي -->
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-4">
+                  <h2 class="font-black text-base text-slate-900 border-b pb-2">الوصف الوظيفي</h2>
+                  <p class="text-xs md:text-sm text-slate-700 leading-relaxed">
+                    تتولى مسؤولية تصميم، تطوير، واختبار الأنظمة البرمجية الحديثة باستخدام تقنيات الجافا وهندسة البرمجيات المتقدمة، وضمان تطبيق أعلى معايير الجودة وأمن المعلومات، والتعاون مع فرق العمل المختلفة لتحقيق أهداف المنشأة التقنية.
+                  </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm space-y-3">
+                    <h3 class="font-black text-sm text-slate-900 border-b pb-2">المؤهلات المطلوبة</h3>
+                    <ul class="list-disc list-inside text-xs text-slate-700 space-y-1.5">
+                      <li>درجة البكالوريوس في تخصص <strong>علوم الحاسب الآلي (Computer Science)</strong>.</li>
+                      <li>المعرفة التامة بلغات البرمجة كجافا وهياكل البيانات المتقدمة.</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm space-y-3">
+                    <h3 class="font-black text-sm text-slate-900 border-b pb-2">طبيعة العمل والخبرة</h3>
+                    <p class="text-xs text-slate-700"><strong>الخبرة العملية:</strong> سنتين فأكثر في تطوير البرمجيات.</p>
+                    <p class="text-xs text-slate-700"><strong>طبيعة الدوام:</strong> دوام كامل (حضوري بمقر الشركة في جدة).</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Fake Form Section (The Trap) -->
+              <div id="fakeApplicationForm" class="lg:col-span-1 bg-white border-2 border-rose-200 rounded-3xl p-6 shadow-md space-y-4 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-rose-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">خطوة إلزامية للتقديم</div>
+                <h2 class="font-black text-base text-rose-900 border-b pb-2">نموذج التقديم ودفع الرسوم</h2>
+                <p class="text-xs text-slate-600">الرجاء إكمال البيانات التالية وسداد رسوم التسجيل (مستردة في حال عدم القبول) لضمان إرسال ملفك للجهة الطالبة.</p>
+                
+                <div class="space-y-3 mt-4">
+                  <div>
+                    <label class="block text-[11px] font-bold text-slate-700 mb-1">الاسم الرباعي</label>
+                    <input type="text" placeholder="أدخل اسمك الكامل" class="w-full border border-slate-300 rounded-xl p-2.5 bg-slate-50 focus:border-emerald-600 outline-none text-xs">
+                  </div>
+                  <div>
+                    <label class="block text-[11px] font-bold text-slate-700 mb-1">رقم الهوية الوطنية / الإقامة</label>
+                    <input type="text" placeholder="10XXXXXXXX" maxlength="10" class="w-full border border-slate-300 rounded-xl p-2.5 bg-slate-50 focus:border-emerald-600 outline-none text-xs">
+                  </div>
+                  <div>
+                    <label class="block text-[11px] font-bold text-slate-700 mb-1">البريد الإلكتروني</label>
+                    <input type="email" placeholder="example@gmail.com" class="w-full border border-slate-300 rounded-xl p-2.5 bg-slate-50 focus:border-emerald-600 outline-none text-xs">
+                  </div>
+
+                  <div class="bg-slate-100 p-3 rounded-xl border border-slate-200 flex items-center justify-between mt-2">
+                    <span class="font-bold text-slate-700 text-xs">رسوم معالجة الطلب:</span>
+                    <span class="text-rose-600 font-black text-lg">150.00 ريال</span>
+                  </div>
+
+                  <button onclick="alert('⚠️ تنبيه أمني: الجهات الحكومية مثل جدارات لا تطلب رسوم تقديم على الوظائف إطلاقاً!')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3 rounded-xl shadow-lg mt-2 transition text-xs">
+                    انتقل لصفحة الدفع الآمن
+                  </button>
+                </div>
+                
+                <div class="mt-4 text-center border-t pt-3 border-slate-100">
+                  <p class="text-[11px] text-slate-500 font-bold">أو أرسل سيرتك الذاتية مباشرة إلى البريد الإلكتروني للموارد البشرية:</p>
+                  <p class="text-xs font-black text-emerald-700 mt-1 cursor-pointer hover:underline">jadarat-careers@gmail.com</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-start">
+              <button onclick="jadaratGoToJobs()" class="bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-2.5 rounded-xl text-xs">
+                العودة لقائمة الوظائف
+              </button>
+            </div>
+          </div>
+          ${getJadaratFooter()}
+        </div>
+      `;
+    }
+
+    // واجهة تسجيل دخول مايكروسوفت المزيفة
+    function getMicrosoftFakeHtml() {
+      return `
+        <div class="bg-[#f3f3f3] min-h-full font-sans flex items-center justify-center p-4 relative" dir="ltr">
+          <div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('https://aadcdn.msauth.net/shared/1.0/content/images/backgrounds/2_bc3d32a696895f78c19df6c717586a5d.svg');"></div>
+          
+          <div class="bg-white p-8 shadow-lg w-full max-w-[420px] relative z-10 text-[#1b1b1b]">
+            <img src="https://logincdn.msauth.net/shared/1.0/content/images/microsoft_logo_ee5c8d9fb6248c938fd0dc19370e90bd.svg" alt="Microsoft" class="h-6 mb-4">
+            
+            <h2 class="text-[24px] font-semibold mb-3 leading-tight">Sign in</h2>
+            
+            <div class="text-[14px] text-[#e81123] mb-3">
+              Your session has expired. Please sign in again to view the shared document.
+            </div>
+            
+            <input type="email" value="employee@company.com" readonly class="w-full border-b border-[#666666] outline-none py-1.5 mb-4 text-[15px] text-[#1b1b1b] bg-transparent">
+            
+            <input type="password" placeholder="Password" class="w-full border-b border-[#0067b8] outline-none py-1.5 mb-4 text-[15px] focus:border-b-2 placeholder-[#666666]">
+            
+            <p class="text-[13px] text-[#0067b8] hover:underline cursor-pointer mb-8">Forgot my password</p>
+            
+            <div class="flex justify-end">
+              <button class="bg-[#0067b8] text-white px-8 py-1.5 text-[15px] hover:bg-[#005da6] transition-colors">Sign in</button>
+            </div>
+          </div>
+          
+          <div class="absolute bottom-4 right-8 flex gap-4 text-[12px] text-[#666666] z-10">
+            <span class="hover:underline cursor-pointer">Terms of use</span>
+            <span class="hover:underline cursor-pointer">Privacy & cookies</span>
+            <span>...</span>
+          </div>
+        </div>
+      `;
+    }
+
+    // واجهة إيفاء المطابقة تماماً للصورة المعروضة مع تحذير إيقاف الخدمات وفخ الرابط الدقيق (efaa)
+    function getEfaaFakeHtml() {
+      return `
+        <div class="relative min-h-full font-sans overflow-hidden" dir="rtl">
+          <!-- Background image mimicking the exact Saudi man looking at tablet from user screenshot -->
+          <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80')] bg-cover bg-center"></div>
+          <!-- Exact Teal Overlay (#0e7872 / #118b83) -->
+          <div class="absolute inset-0 bg-[#0e7872]/90 mix-blend-multiply"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-[#0e7872]/80 via-[#0e7872]/75 to-[#0e7872]/95"></div>
+
+          <div class="relative z-10 flex flex-col min-h-[580px] text-white justify-between">
+            
+            <!-- Header (Exact Match to Screenshot) -->
+            <header class="flex items-center justify-between px-4 sm:px-8 py-3.5 border-b border-white/10">
+              <div class="hidden lg:flex items-center gap-6 text-[11px] font-bold">
+                <span class="hover:text-emerald-200 cursor-pointer flex items-center gap-1">EN <i class="fa-solid fa-globe"></i></span>
+                <span class="hover:text-emerald-200 cursor-pointer flex items-center gap-1">تسجيل الدخول <i class="fa-solid fa-chevron-down text-[8px]"></i></span>
+                <span class="hover:text-emerald-200 cursor-pointer">اتصل بنا</span>
+                <span class="hover:text-emerald-200 cursor-pointer">شركاؤنا</span>
+                <span class="hover:text-emerald-200 cursor-pointer">قائمة المخالفات</span>
+                <span class="hover:text-emerald-200 cursor-pointer">المستفيدون</span>
+                <span class="hover:text-emerald-200 cursor-pointer">عن إيفاء</span>
+                <span class="hover:text-emerald-200 cursor-pointer">الرئيسية</span>
+              </div>
+              <div class="flex items-center gap-2 mr-auto lg:mr-0">
+                <div class="text-right leading-tight">
+                  <div class="text-2xl font-black">إيفاء</div>
+                  <div class="text-[8px] opacity-80">المنصة الوطنية للمخالفات</div>
+                </div>
+                <i class="fa-solid fa-feather text-3xl"></i>
+              </div>
+            </header>
+
+            <!-- Main Content Grid (Exact Match to Screenshot Layout) -->
+            <div class="flex-1 flex flex-col lg:flex-row items-center justify-center gap-8 px-4 sm:px-8 py-6 max-w-7xl mx-auto w-full">
+              
+              <!-- Left Box: الاستعلام عن مخالفة (Exact Form Layout from Screenshot) -->
+              <div class="w-full max-w-md bg-white/95 backdrop-blur-md shadow-2xl rounded-2xl overflow-hidden text-slate-800 border border-white/20 order-2 lg:order-1">
+                <div class="bg-slate-100/80 px-4 py-3.5 text-center border-b border-slate-200">
+                  <h2 class="text-base font-black text-slate-800">استعلام عن مخالفة</h2>
+                </div>
+                
+                <div class="p-5 space-y-3">
+                  <!-- Urgency Warning Trap Banner (24 Hours Service Suspension) -->
+                  <div class="bg-rose-100 border border-rose-300 text-rose-700 text-[10px] font-bold p-2 text-center rounded shadow-inner animate-pulse">
+                    <i class="fa-solid fa-triangle-exclamation"></i> تنبيه عاجل: سيتم إيقاف الخدمات والحسابات خلال 24 ساعة فقط لعدم سداد المخالفات المعلقة!
+                  </div>
+
+                  <!-- Individuals / Business Toggle Buttons -->
+                  <div class="flex rounded-lg overflow-hidden border border-slate-300 text-xs font-bold">
+                    <button class="flex-1 bg-[#0e7872] text-white py-2 flex items-center justify-center gap-1.5 shadow-inner"><i class="fa-solid fa-user"></i> أفراد</button>
+                    <button class="flex-1 bg-slate-200 text-slate-600 py-2 flex items-center justify-center gap-1.5"><i class="fa-solid fa-building"></i> منشأة</button>
+                  </div>
+
+                  <!-- Input Fields mimicking screenshot -->
+                  <div class="space-y-2.5">
+                    <input type="text" placeholder="رقم الهوية أو رقم الحدود" class="w-full p-2.5 text-xs border border-slate-300 rounded-xl outline-none bg-white shadow-inner focus:border-[#0e7872]">
+
+                    <div class="grid grid-cols-2 gap-2">
+                      <input type="text" placeholder="رقم المخالفة" class="w-full p-2.5 text-xs border border-slate-300 rounded-xl outline-none bg-white shadow-inner focus:border-[#0e7872]">
+                      <input type="text" placeholder="تاريخ الميلاد" class="w-full p-2.5 text-xs border border-slate-300 rounded-xl outline-none bg-white shadow-inner focus:border-[#0e7872]">
+                    </div>
+
+                    <!-- Trap Payment Form Fields -->
+                    <div class="border border-rose-200 rounded-xl p-2.5 bg-rose-50/50 space-y-2">
+                      <span class="block text-[10px] text-rose-600 font-bold text-center">بيانات البطاقة للسداد الفوري (تفادي إيقاف الخدمات)</span>
+                      <input type="text" placeholder="الاسم على البطاقة" class="w-full p-2 text-xs border border-slate-300 rounded-lg bg-white outline-none">
+                      <input type="text" placeholder="رقم البطاقة الائتمانية (مدى / فيزا)" maxlength="19" class="w-full p-2 text-xs border border-slate-300 rounded-lg bg-white font-mono outline-none" dir="ltr">
+                      <div class="flex gap-2">
+                        <input type="text" placeholder="MM/YY" maxlength="5" class="w-full p-2 text-xs border border-slate-300 rounded-lg bg-white font-mono text-center outline-none" dir="ltr">
+                        <input type="password" placeholder="CVV" maxlength="4" class="w-full p-2 text-xs border border-slate-300 rounded-lg bg-white font-mono text-center outline-none">
+                      </div>
+                    </div>
+
+                    <button onclick="alert('⚠️ تنبيه أمني: هذه محاكاة احتيالية لسرقة بيانات البطاقة مستغلة ذريعة إيقاف الخدمات خلال 24 ساعة!');" class="w-full bg-[#0e7872] hover:bg-[#0b5e59] text-white font-black py-3 rounded-xl transition text-xs shadow-lg">
+                      استعلام وسداد المخالفات
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Hero Text: المنصة الوطنية للمخالفات (Exact Text & Layout from Screenshot) -->
+              <div class="w-full max-w-xl text-right space-y-4 order-1 lg:order-2">
+                <h1 class="text-3xl md:text-5xl font-black mb-2 leading-tight">المنصة الوطنية للمخالفات</h1>
+                <h3 class="text-base md:text-xl font-bold text-emerald-100 mb-3">وجهة واحدة لإدارة جميع المخالفات</h3>
+                <p class="text-xs md:text-sm text-emerald-50 leading-relaxed opacity-95">
+                  المنصة الوطنية للمخالفات (إيفاء) هي إحدى المنصات الوطنية التي ينفذها مركز المعلومات الوطني التابع للهيئة السعودية للبيانات والذكاء الاصطناعي، وهي تهدف إلى تمكين المواطنين والمقيمين والزائرين وأصحاب الأعمال من معرفة واستعراض كافة مخالفاتهم لدى الجهات الحكومية بكل يسر وسهولة.
+                </p>
+                <div class="flex flex-wrap gap-3 justify-end pt-3">
+                  <button class="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-6 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-2"><i class="fa-solid fa-building"></i> شركاؤنا</button>
+                  <button class="bg-[#0e7872] hover:bg-[#0b5e59] text-white border border-white/20 px-6 py-2.5 rounded-xl text-xs font-bold transition shadow-lg flex items-center gap-2"><i class="fa-solid fa-user-group"></i> أفراد وأعمال</button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Footer (Exact Match to Screenshot Footer Logos & Links) -->
+            <footer class="px-4 sm:px-8 py-5 bg-[#0e7872]/70 backdrop-blur-md border-t border-white/20 mt-auto">
+              <div class="flex flex-col md:flex-row items-center justify-between gap-6 max-w-7xl mx-auto w-full">
+                
+                <!-- Left: SDAIA & NIC Logos -->
+                <div class="flex items-center gap-4">
+                  <div class="text-right text-[8px] leading-tight text-white">
+                    <div class="font-black text-xs">SDAIA</div>
+                    <div class="opacity-90">الهيئة السعودية للبيانات والذكاء الاصطناعي</div>
+                  </div>
+                  <div class="w-px h-8 bg-white/30"></div>
+                  <div class="text-right text-[8px] leading-tight text-white">
+                    <div class="font-black text-xs">NIC</div>
+                    <div class="opacity-90">مركز المعلومات الوطني</div>
+                  </div>
+                </div>
+
+                <!-- Center: Links & Payment Gateways -->
+                <div class="flex flex-col items-center gap-1.5 flex-1 text-center">
+                  <div class="text-[10px] font-bold text-emerald-100">المنصة الوطنية للمخالفات</div>
+                  <div class="flex flex-wrap justify-center gap-4 text-[10px] text-white opacity-90">
+                    <span class="hover:underline cursor-pointer">سياسة الخصوصية</span>
+                    <span class="hover:underline cursor-pointer">اتفاقية مستوى تقديم الخدمة</span>
+                    <span class="hover:underline cursor-pointer">شروط الاستخدام</span>
+                    <span class="hover:underline cursor-pointer">الأسئلة الشائعة</span>
+                  </div>
+                  <div class="flex gap-3 mt-1.5 text-lg items-center text-white">
+                     <i class="fa-brands fa-cc-mastercard"></i>
+                     <i class="fa-brands fa-cc-visa"></i>
+                     <span class="font-black text-xs italic border border-white/70 px-1 rounded">SADAD</span>
+                     <span class="font-black text-xs italic border border-white/70 px-1 rounded">mada</span>
+                  </div>
+                </div>
+
+                <!-- Right: Efaa & Digital Gov Authority -->
+                <div class="flex items-center gap-4">
+                  <div class="border border-white/40 rounded-lg p-1.5 flex flex-col items-center text-[7px] text-center text-white w-24 bg-white/5">
+                     <i class="fa-solid fa-qrcode text-lg mb-0.5"></i>
+                     <span>مسجل لدى</span>
+                     <span class="font-bold">هيئة الحكومة الرقمية</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-white">
+                    <div class="text-right leading-tight">
+                      <div class="text-xl font-black">إيفاء</div>
+                    </div>
+                    <i class="fa-solid fa-feather text-2xl"></i>
+                  </div>
+                </div>
+
+              </div>
+            </footer>
+
+          </div>
+        </div>
+      `;
+    }
+
+    // Scenario Definitions
+    const scenarios = [
+      {
+        id: 1,
+        title: "السيناريو الأول: متجر تسوق إلكتروني لشراء هاتف ذكي",
+        isReal: true,
+        urlDisplay: `<i class="fa-solid fa-lock text-emerald-600 text-xs"></i> <span class="text-slate-900 font-bold">https://www.amazon.sa</span>/dp/B0GDCH92F`,
+        renderHtml: getAmazonHtml(true),
+        explanation: {
+          headerCorrect: `<i class="fa-solid fa-circle-check text-emerald-600 text-2xl"></i><div><h4 class="font-bold text-emerald-900">ممتاز! إجابة صحيحة (موقع حقيقي) 🎉</h4><p class="text-xs text-emerald-700">لقد تحققت بدقة من النطاق المعتمد رسمياً.</p></div>`,
+          headerIncorrect: `<i class="fa-solid fa-circle-xmark text-rose-600 text-2xl"></i><div><h4 class="font-bold text-rose-900">إجابة خاطئة! (الموقع حقيقي رسمياً) ⚠️</h4><p class="text-xs text-rose-700">هذا هو موقع أمازون السعودية الرسمي المعتمد.</p></div>`,
+          points: [
+            "<b>النطاق المعتمد (Domain):</b> ينتهي بدقة بـ <code class=\"bg-emerald-100 text-emerald-900 px-1 rounded font-mono\">amazon.sa</code> دون أي أحرف إضافية.",
+            "<b>شهادة الأمان (HTTPS):</b> الاتصال آمن ومشفر برمز القفل المعتمد.",
+            "<b>منطقية السعر والبيانات:</b> السعر يطابق الواقع مع خيارات الشحن الرسمية والبائع المعتمد."
+          ]
+        }
+      },
+      {
+        id: 2,
+        title: "السيناريو الثاني: عرض شراء هاتف بتخفيض خاص",
+        isReal: false,
+        urlDisplay: `<i class="fa-solid fa-lock text-slate-400 text-xs"></i> <span class="text-slate-800">https://www.amaz0n-sa.com</span>/dp/B0GDCH92F`,
+        renderHtml: getAmazonHtml(false),
+        explanation: {
+          headerCorrect: `<i class="fa-solid fa-circle-check text-emerald-600 text-2xl"></i><div><h4 class="font-bold text-emerald-900">دقة عالية جداً! إجابة صحيحة (موقع احتيالي) 🎯</h4><p class="text-xs text-emerald-700">فطنت للتلاعب الخفي بأسماء النطاقات (Typosquatting) والمغريات الوهمية.</p></div>`,
+          headerIncorrect: `<i class="fa-solid fa-triangle-exclamation text-rose-600 text-2xl"></i><div><h4 class="font-bold text-rose-900">إجابة خاطئة! (هذا موقع احتيالي خفي) ⚠️</h4><p class="text-xs text-rose-700">انتبه، تم التلاعب بحرف بسيط جداً في شريط العنوان واستخدام خصومات وهمية مستفزة!</p></div>`,
+          points: [
+            "<b>التلاعب بالنطاق (Typosquatting):</b> تم استخدام الرقم <code class=\"bg-rose-100 text-rose-900 px-1 rounded font-mono\">0</code> بدلاً من حرف <code class=\"font-mono\">o</code> في كلمة amaz0n.",
+            "<b>المغريات الوهمية المفرطة:</b> تقديم خصم بنسبة 72% على منتج جديد حديث الإصدار وعد تنازلي مخادع لدفع الضحية للاستعجال دون تفكير."
+          ]
+        }
+      },
+      {
+        id: 3,
+        title: "السيناريو الثالث: بوابة التتبع والخدمات اللوجستية (البريد السعودي سبُل)",
+        isReal: true,
+        urlDisplay: `<i class="fa-solid fa-lock text-emerald-600 text-xs"></i> <span class="text-slate-900 font-bold">https://splonline.com.sa</span>/ar/tracking/`,
+        renderHtml: `
+          <div class="bg-white text-slate-900 min-h-full font-sans text-xs" dir="rtl">
+            <header class="bg-[#0b3c40] text-white border-b border-teal-800 sticky top-0 z-30">
+              <div class="max-w-[1500px] mx-auto px-4 py-2.5 flex items-center justify-between">
+                <div class="flex items-center gap-6">
+                  <div class="flex items-center font-black text-2xl tracking-tighter text-teal-300">
+                    <span>SPL</span>
+                    <i class="fa-solid fa-cubes text-teal-400 text-base mr-1"></i>
+                  </div>
+                  <nav class="hidden md:flex items-center gap-5 text-xs font-bold text-slate-200">
+                    <span class="text-white border-b-2 border-teal-400 pb-1 cursor-pointer">الأفراد</span>
+                    <span class="hover:text-teal-300 cursor-pointer">الأعمال</span>
+                    <span class="hover:text-teal-300 cursor-pointer">الخدمات الحكومية</span>
+                  </nav>
+                </div>
+                <div class="flex items-center gap-4 text-xs font-bold">
+                  <span class="hover:text-teal-300 cursor-pointer">مساعدة</span>
+                  <i class="fa-solid fa-location-dot cursor-pointer"></i>
+                  <i class="fa-solid fa-magnifying-glass cursor-pointer"></i>
+                  <span class="cursor-pointer">English</span>
+                  <button class="border border-white/40 hover:bg-white/10 text-white px-4 py-1.5 rounded-lg">دخول</button>
+                  <button class="bg-[#00a896] hover:bg-[#028b7c] text-white px-4 py-1.5 rounded-lg">تسجيل</button>
+                </div>
+              </div>
+              <div class="bg-[#0b3c40] border-t border-teal-900 px-6 py-2 flex items-center gap-8 text-xs font-bold text-teal-100">
+                <span class="hover:text-white cursor-pointer">إرسال</span>
+                <span class="hover:text-white cursor-pointer">استلام</span>
+                <span class="hover:text-white cursor-pointer">عالمي</span>
+                <span class="hover:text-white cursor-pointer">العنوان الوطني</span>
+                <span class="hover:text-white cursor-pointer">خدمات التجزئة</span>
+                <span class="hover:text-white cursor-pointer">الطوابع</span>
+              </div>
+            </header>
+
+            <div class="bg-[#0e4d52] text-white px-6 py-2.5 flex items-center justify-between text-xs border-b border-teal-900">
+              <div class="flex items-center gap-2 font-bold">
+                <i class="fa-solid fa-triangle-exclamation text-amber-400"></i>
+                <span>تحذير : لا يستخدم البريد الإلكتروني لسداد الفواتير!</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="bg-teal-700/60 px-3 py-1 rounded">رأيك يهمنا! قيم تجربتك الرقمية مع سبل</span>
+                <button class="bg-[#00a896] text-white px-3 py-1 rounded font-bold">قيم تجربتك الآن</button>
+              </div>
+            </div>
+
+            <div class="bg-white py-12 px-4 border-b border-slate-100">
+              <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                  <span class="text-teal-700 font-bold">سبيلك للعالم | سبيلك للعالم</span>
+                  <h1 class="text-3xl font-black text-slate-900">سبيك للعالم</h1>
+                  <p class="text-xs text-slate-600">أهلاً بك في البريد السعودي | سبل</p>
+                  
+                  <div class="bg-white border border-slate-300 rounded-2xl p-4 shadow-xl space-y-3">
+                    <div class="flex items-center gap-2 text-slate-700 font-bold border-b pb-2">
+                      <i class="fa-solid fa-box text-teal-600"></i>
+                      <span>تتبع الشحنات</span>
+                    </div>
+                    <p class="text-slate-500 text-[11px]">أدخل رقماً أو عدة أرقام تتبع</p>
+                    <div class="flex gap-2">
+                      <input type="text" placeholder="e.g XHSNF74652HBD" class="flex-grow border border-slate-300 p-2.5 rounded-xl font-mono text-xs focus:outline-none focus:border-teal-600">
+                      <button class="bg-[#00a896] text-white font-black px-6 py-2.5 rounded-xl">تتبع</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex justify-center">
+                  <div class="bg-gradient-to-tr from-teal-50 to-slate-100 p-8 rounded-3xl border border-slate-200 text-center shadow-inner">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="شحن" class="rounded-2xl max-h-64 object-cover shadow-md mx-auto">
+                    <p class="font-bold text-slate-800 mt-3">كل السبل تؤدي إليك .. سبيِلك للعالم</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <footer class="bg-[#0b3c40] text-slate-300 pt-12 pb-6 border-t border-teal-900">
+              <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-3"><h4 class="font-bold text-white text-sm">سبل</h4><ul class="space-y-2 text-[11px]"><li>عن المؤسسة</li><li>كلمة معالي الرئيس</li></ul></div>
+                <div class="space-y-3"><h4 class="font-bold text-white text-sm">المركز الإعلامي</h4><ul class="space-y-2 text-[11px]"><li>الأخبار</li><li>الفعاليات</li></ul></div>
+                <div class="space-y-3"><h4 class="font-bold text-white text-sm">أخرى</h4><ul class="space-y-2 text-[11px]"><li>التوظيف</li><li>التوعية بالاحتيال</li></ul></div>
+                <div class="space-y-3"><h4 class="font-bold text-white text-sm">مواقع ذات علاقة</h4><ul class="space-y-2 text-[11px]"><li>وزارة النقل</li><li>أبشر</li></ul></div>
+              </div>
+              <div class="max-w-7xl mx-auto px-6 pt-6 border-t border-teal-900/60 flex justify-between text-[11px]">
+                <span>© 2026 جميع الحقوق محفوظة البريد السعودي | سبل</span>
+                <span>شروط الخدمة | سياسة الخصوصية</span>
+              </div>
+            </footer>
+          </div>
+        `,
+        explanation: {
+          headerCorrect: `<i class="fa-solid fa-circle-check text-emerald-600 text-2xl"></i><div><h4 class="font-bold text-emerald-900">إجابة صحيحة! 🎉 (هذا موقع حقيقي وآمن)</h4><p class="text-xs text-emerald-700">أحسنت! هذا هو النطاق المعتمد لـ سبُل البريد السعودي.</p></div>`,
+          headerIncorrect: `<i class="fa-solid fa-circle-xmark text-rose-600 text-2xl"></i><div><h4 class="font-bold text-rose-900">إجابة خاطئة! ⚠️ (الموقع حقيقي رسمياً)</h4><p class="text-xs text-rose-700">هذا هو الموقع الرسمي والآمن لـ سبُل البريد السعودي.</p></div>`,
+          points: [
+            "<b>النطاق الحكومي الرسمي (Domain):</b> ينتهي بـ <code class=\"bg-emerald-100 text-emerald-900 px-1 rounded font-mono\">splonline.com.sa</code>.",
+            "<b>عدم وجود إجبار على الدفع:</b> صفحة تتبع حقيقية تطلب رقم الشحنة دون التهديد المباشر بدفع رسوم."
+          ]
+        }
+      },
+      {
+        id: 4,
+        title: "السيناريو الرابع: بوابة التتبع والخدمات اللوجستية (أرامكس)",
+        isReal: false,
+        urlDisplay: `<i class="fa-solid fa-lock text-slate-400 text-xs"></i> <span class="text-slate-800">http://aramex-sa-customs.com/track</span>`,
+        renderHtml: `
+          <div class="bg-slate-50 text-slate-900 min-h-full font-sans" dir="rtl">
+            <header class="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between shadow-xs sticky top-0 z-30">
+              <div class="flex items-center gap-6">
+                <span class="text-red-600 font-black text-2xl tracking-tighter">aramex</span>
+                <nav class="hidden md:flex items-center gap-5 text-xs font-bold text-slate-700">
+                  <span class="text-red-600 border-b-2 border-red-600 pb-1 cursor-pointer">إرسال وتتبع الشحنات</span>
+                  <span class="hover:text-red-600 cursor-pointer">الحلول والمنتجات</span>
+                </nav>
+              </div>
+              <div class="flex items-center gap-3 text-xs font-bold">
+                <button class="bg-red-600 text-white px-4 py-2 rounded-md">تسجيل الدخول</button>
+              </div>
+            </header>
+
+            <div class="max-w-4xl mx-auto px-4 py-8 space-y-6">
+              <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 rounded-2xl shadow-lg text-center space-y-3">
+                <h1 class="text-2xl font-black">تتبع شحناتك</h1>
+                <p class="text-xs text-slate-300">رقم التتبع: <strong class="text-amber-400 font-mono">AMX-98234105-SA</strong> (الحالة: معلقة بانتظار سداد الرسوم الجمركية)</p>
+              </div>
+
+              <div class="bg-white border-2 border-red-500 rounded-2xl p-6 shadow-xl space-y-4">
+                <div class="border-b border-slate-100 pb-3 flex items-center justify-between">
+                  <div>
+                    <h3 class="font-black text-sm text-slate-900">سداد الرسوم الجمركية المستحقة للإفراج عن الطرد</h3>
+                    <p class="text-[11px] text-slate-500">المبلغ المطلوب: <strong class="text-red-600 font-bold">75.00 ريال سعودي</strong></p>
+                  </div>
+                  <span class="bg-red-100 text-red-700 text-xs font-bold px-3 py-1 rounded-full">دفع عاجل مطلوب</span>
+                </div>
+
+                <form onsubmit="submitAramexFakePayment(event)" class="space-y-3 text-xs">
+                  <div>
+                    <label class="block font-bold mb-1 text-slate-700">اسم حامل البطاقة</label>
+                    <input type="text" required placeholder="الاسم كما هو مكتوب على البطاقة" class="w-full border border-slate-300 p-2.5 rounded-xl font-medium focus:outline-none focus:border-red-600 bg-slate-50">
+                  </div>
+                  <div>
+                    <label class="block font-bold mb-1 text-slate-700">رقم البطاقة الائتمانية</label>
+                    <input type="text" required placeholder="XXXX XXXX XXXX XXXX" maxlength="19" class="w-full border border-slate-300 p-2.5 rounded-xl font-mono font-bold focus:outline-none focus:border-red-600 bg-slate-50">
+                  </div>
+                  <div class="grid grid-cols-2 gap-3">
+                    <div>
+                      <label class="block font-bold mb-1 text-slate-700">تاريخ الانتهاء</label>
+                      <input type="text" required placeholder="MM/YY" maxlength="5" class="w-full border border-slate-300 p-2.5 rounded-xl font-mono text-center focus:outline-none focus:border-red-600 bg-slate-50">
+                    </div>
+                    <div>
+                      <label class="block font-bold mb-1 text-slate-700">رمز الأمان (CVV)</label>
+                      <input type="password" required placeholder="123" maxlength="4" class="w-full border border-slate-300 p-2.5 rounded-xl font-mono text-center focus:outline-none focus:border-red-600 bg-slate-50">
+                    </div>
+                  </div>
+                  <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-black py-3 rounded-xl shadow-lg mt-2 transition text-sm">
+                    إتمام الدفع وسداد رسوم الجمارك الفورية
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        `,
+        explanation: {
+          headerCorrect: `<i class="fa-solid fa-circle-check text-emerald-600 text-2xl"></i><div><h4 class="font-bold text-emerald-900">إجابة ذكية جداً! 🎉 (هذا موقع احتيالي مزيف)</h4><p class="text-xs text-emerald-700">لقد كشفت فخ الرسوم الجمركية المزيفة ونطاق التصيد.</p></div>`,
+          headerIncorrect: `<i class="fa-solid fa-circle-xmark text-rose-600 text-2xl"></i><div><h4 class="font-bold text-rose-900">إجابة خاطئة! ⚠️ (هذا موقع احتيالي لسرقة البطاقات)</h4><p class="text-xs text-rose-700">انتبه، شركات الشحن لا تطلب إدخال بيانات البطاقة وسداد الجمارك عبر روابط خارجية مجهولة.</p></div>`,
+          points: [
+            "<b>النطاق الاحتيالي (Domain):</b> النطاق <code class=\"bg-rose-100 text-rose-900 px-1 rounded font-mono\">aramex-sa-customs.com + http </code> ليس النطاق الرسمي لأرامكس.",
+            "<b>أسلوب الابتزاز المالي:</b> استخدام ذريعة (شحنة محتجزة جمركياً) لدفع مبلغ زهيد لاستدراج الضحية وإدخال بيانات بطاقتها البنكية الكاملة ورمز التحقق."
+          ]
+        }
+      },
+      {
+        id: 5,
+        title: "السيناريو الخامس: المنصة الوطنية للتوظيف (رسوم توظيف وهمية)",
+        isReal: false,
+        urlDisplay: `<i class="fa-solid fa-lock text-emerald-600 text-xs"></i> <span class="text-slate-800 font-bold">https://jadrat.sa</span>/JobDetails?Param=...`,
+        renderHtml: '', 
+        explanation: {
+          headerCorrect: `<i class="fa-solid fa-circle-check text-emerald-600 text-2xl"></i><div><h4 class="font-bold text-emerald-900">إجابة صحيحة وموفقة! 🎉 (موقع توظيف احتيالي)</h4><p class="text-xs text-emerald-700">أحسنت! لقد اكتشفت الاستغلال المالي للباحثين عن العمل وفخ النطاق.</p></div>`,
+          headerIncorrect: `<i class="fa-solid fa-circle-xmark text-rose-600 text-2xl"></i><div><h4 class="font-bold text-rose-900">إجابة خاطئة! ⚠️ (هذا فخ لاستغلال الباحثين عن عمل)</h4><p class="text-xs text-rose-700">هذا الموقع يسرق بياناتك ومالك بحجة رسوم التوظيف.</p></div>`,
+          points: [
+            "<b>فخ التلاعب بحروف النطاق (Typosquatting):</b> الرابط الحقيقي هو <code class=\"font-mono\">jadarat.sa</code>، بينما المحتال تعمد كتابته <code class=\"bg-rose-100 text-rose-900 px-1 rounded font-mono\">jadrat.sa</code> (بحذف حرف a) لخداع العين أثناء القراءة السريعة.",
+            "<b>رسوم التقديم الوهمية:</b> المنصات الحكومية والرسمية (مثل جدارات) لا تطلب أبداً رسوماً مالية (150 ريال أو غيرها) مقابل التقديم على الوظائف."
+          ]
+        }
+      },
+      {
+        id: 6,
+        title: "السيناريو المتقدم: مشاركة ملفات عمل عبر (Microsoft 365)",
+        isReal: false,
+        urlDisplay: `<i class="fa-solid fa-lock text-emerald-600 text-xs"></i> <span class="text-slate-800 font-bold">https://login.rnicrosoft.com</span>/common/oauth2/`,
+        renderHtml: getMicrosoftFakeHtml(),
+        explanation: {
+          headerCorrect: `<i class="fa-solid fa-circle-check text-emerald-600 text-2xl"></i><div><h4 class="font-bold text-emerald-900">عين الصقر! 🎉 (تصيد بالخداع البصري)</h4><p class="text-xs text-emerald-700">لقد اكتشفت واحدة من أخطر حيل الاختراق التي تستهدف الشركات.</p></div>`,
+          headerIncorrect: `<i class="fa-solid fa-circle-xmark text-rose-600 text-2xl"></i><div><h4 class="font-bold text-rose-900">لقد تم اختراقك! ⚠️ (النطاق مزيف بصرياً)</h4><p class="text-xs text-rose-700">الواجهة حقيقية والقفل موجود، لكنك لم تلاحظ الخدعة البصرية في شريط العنوان.</p></div>`,
+          points: [
+            "<b>الخداع البصري (Homograph Attack):</b> دقق في الرابط، المحتال استخدم حرفي <code class=\"bg-rose-100 text-rose-900 px-1 rounded font-mono\">r n</code> بجانب بعضهما ليظهرا كحرف <code class=\"bg-emerald-100 text-emerald-900 px-1 rounded font-mono\">m</code> (rnicrosoft بدلاً من microsoft).",
+            "<b>شهادة الأمان المضللة:</b> الموقع يمتلك قفل أمان (HTTPS) حقيقي، لأن المحتال اشترى النطاق المزيف ووثقه، وهذا يثبت أن القفل وحده لا يكفي للأمان."
+          ]
+        }
+      },
+      {
+        id: 7,
+        title: "السيناريو المتقدم: سداد المخالفات المرورية وإيقاف الخدمات",
+        isReal: false,
+        // الرابط الصحيح بالكامل مع تعديل خفي ودقيق في كلمة efaa فقط (مثل ef-aa.sa أو استخدام حرف e mكرر أو تغيير حرف خفي في efaa)
+        urlDisplay: `<i class="fa-solid fa-lock text-emerald-600 text-xs"></i> <span class="text-slate-800 font-bold">https://efaa-gov.sa</span>/traffic-violation/pay`,
+        renderHtml: getEfaaFakeHtml(),
+        explanation: {
+          headerCorrect: `<i class="fa-solid fa-circle-check text-emerald-600 text-2xl"></i><div><h4 class="font-bold text-emerald-900">تحليل أمني عبقري! 🎉 (موقع احتيالي متقدم)</h4><p class="text-xs text-emerald-700">لم تنخدع بالتعديل الطفيف في كلمة efaa ولا بتهديد إيقاف الخدمات.</p></div>`,
+          headerIncorrect: `<i class="fa-solid fa-triangle-exclamation text-rose-600 text-2xl"></i><div><h4 class="font-bold text-rose-900">إجابة خاطئة! ⚠️ (هذا فخ لسرقة بيانات بطاقتك)</h4><p class="text-xs text-rose-700">لقد تسرعت بالدفع بسبب الخوف من إيقاف الخدمات خلال 24 ساعة وعدم ملاحظة التعديل الخفي في رابط efaa.</p></div>`,
+          points: [
+            "<b>التعديل الخفي في كلمة efaa (Typosquatting):</b> تم التلاعب بكلمة إيفاء في الرابط لتصبح <code class=\"bg-rose-100 text-rose-900 px-1 rounded font-mono\">efaa-gov.sa</code> بدلاً من النطاق الرسمي <code class=\"bg-emerald-100 text-emerald-900 px-1 rounded font-mono\">efaa.sa</code> لخداع العين أثناء الفحص السريع.",
+            "<b>استغلال الخوف والضغط النفسي (إيقاف الخدمات خلال 24 ساعة):</b> يعتمد المحتالون على أسلوب التخويف بمهلة زمنية قصيرة (24 ساعة فقط) لدفع الضحية للسداد الفوري دون تفحص الرابط بدقة.",
+            "<b>محاكاة واجهة إيفاء الرسمية بدقة:</b> تم مطابقة كافة تفاصيل وشعارات المنصة (مثل SDAIA و NIC و هيئة الحكومة الرقمية) لزيادة موثوقية الخداع."
+          ]
+        }
+      }
+    ];
+
+    // ==================== APP FLOW LOGIC ====================
+
+    function startChallenge() {
+      document.getElementById('startScreen').classList.add('hidden');
+      document.getElementById('gameplaySection').classList.remove('hidden');
+      document.getElementById('topProgressBar').classList.remove('hidden');
+      document.getElementById('topProgressBar').classList.add('flex');
+      
+      currentStep = 0;
+      userScore = 0;
+      userAnswers.length = 0;
+      
+      renderCurrentScenario();
+    }
+
+    function renderCurrentScenario() {
+      const scenario = scenarios[currentStep];
+
+      document.getElementById('currentStepText').innerText = currentStep + 1;
+      document.getElementById('scenarioTitle').innerText = scenario.title;
+      document.getElementById('simulatedUrlBar').innerHTML = scenario.urlDisplay;
+
+      document.getElementById('decisionButtons').classList.remove('hidden');
+      document.getElementById('backToResultsBtn').classList.add('hidden');
+      document.getElementById('feedbackCard').classList.add('hidden');
+      document.getElementById('nextBtnContainer').classList.remove('hidden');
+
+      if (scenario.id === 5) {
+        jadaratCurrentView = 'home';
+        updateJadaratContent();
+      } else {
+        document.getElementById('scenarioViewport').innerHTML = scenario.renderHtml;
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function makeDecision(userChoseReal) {
+      const scenario = scenarios[currentStep];
+      const isCorrect = (userChoseReal === scenario.isReal);
+
+      if (isCorrect) {
+        userScore++;
+      }
+
+      userAnswers.push({
+        scenarioId: scenario.id,
+        title: scenario.title,
+        isCorrect: isCorrect,
+        userChoseReal: userChoseReal,
+        actualIsReal: scenario.isReal
+      });
+
+      document.getElementById('decisionButtons').classList.add('hidden');
+
+      const feedbackCard = document.getElementById('feedbackCard');
+      const feedbackHeader = document.getElementById('feedbackHeader');
+      const feedbackBody = document.getElementById('feedbackBody');
+
+      if (isCorrect) {
+        feedbackHeader.innerHTML = scenario.explanation.headerCorrect;
+        feedbackCard.className = "animate-fade-in cyber-card rounded-2xl p-5 md:p-6 text-slate-100 shadow-2xl border-2 border-emerald-500 mt-2 bg-emerald-950/20";
+      } else {
+        feedbackHeader.innerHTML = scenario.explanation.headerIncorrect;
+        feedbackCard.className = "animate-fade-in cyber-card rounded-2xl p-5 md:p-6 text-slate-100 shadow-2xl border-2 border-rose-500 mt-2 bg-rose-950/20";
+      }
+
+      let pointsHtml = `<p class="font-bold text-white">🔍 التحليل الدقيق وتفاصيل الفحص الأمنية:</p><ul class="list-disc list-inside space-y-1.5 bg-slate-950/80 p-3.5 rounded-xl border border-slate-800 text-xs text-slate-300">`;
+      scenario.explanation.points.forEach(point => {
+        pointsHtml += `<li>${point}</li>`;
+      });
+      pointsHtml += `</ul>`;
+
+      feedbackBody.innerHTML = pointsHtml;
+      feedbackCard.classList.remove('hidden');
+      feedbackCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function nextScenario() {
+      currentStep++;
+      if (currentStep < scenarios.length) {
+        renderCurrentScenario();
+      } else {
+        showFinalResults();
+      }
+    }
+
+    // ==================== REVIEW MODE FUNCTIONS ====================
+    function reviewScenario(idx) {
+      const scenario = scenarios[idx];
+      const ans = userAnswers[idx];
+
+      document.getElementById('resultsScreen').classList.add('hidden');
+      document.getElementById('gameplaySection').classList.remove('hidden');
+      document.getElementById('topProgressBar').classList.add('hidden');
+
+      document.getElementById('scenarioTitle').innerText = scenario.title + " (وضع المراجعة)";
+      document.getElementById('simulatedUrlBar').innerHTML = scenario.urlDisplay;
+
+      if (scenario.id === 5) {
+        jadaratCurrentView = 'home';
+        updateJadaratContent();
+      } else {
+        document.getElementById('scenarioViewport').innerHTML = scenario.renderHtml;
+      }
+
+      document.getElementById('decisionButtons').classList.add('hidden');
+      document.getElementById('backToResultsBtn').classList.remove('hidden');
+      
+      const feedbackCard = document.getElementById('feedbackCard');
+      const feedbackHeader = document.getElementById('feedbackHeader');
+      const feedbackBody = document.getElementById('feedbackBody');
+      
+      document.getElementById('nextBtnContainer').classList.add('hidden');
+
+      feedbackHeader.innerHTML = ans.isCorrect ? scenario.explanation.headerCorrect : scenario.explanation.headerIncorrect;
+      feedbackCard.className = `animate-fade-in cyber-card rounded-2xl p-5 md:p-6 text-slate-100 shadow-2xl border-2 mt-2 ${ans.isCorrect ? 'border-emerald-500 bg-emerald-950/20' : 'border-rose-500 bg-rose-950/20'}`;
+
+      let pointsHtml = `<p class="font-bold text-white mb-2 bg-slate-900/50 p-2 rounded-lg border border-slate-700">اخترت: <b>${ans.userChoseReal ? 'موقع حقيقي' : 'موقع احتيالي'}</b> | النتيجة: <b>${ans.isCorrect ? 'إجابتك صحيحة ✅' : 'إجابتك خاطئة ❌'}</b></p>`;
+      pointsHtml += `<p class="font-bold text-white mt-4 mb-2">🔍 التحليل الدقيق:</p><ul class="list-disc list-inside space-y-1.5 bg-slate-950/80 p-3.5 rounded-xl border border-slate-800 text-xs text-slate-300">`;
+      scenario.explanation.points.forEach(point => { pointsHtml += `<li>${point}</li>`; });
+      pointsHtml += `</ul>`;
+
+      feedbackBody.innerHTML = pointsHtml;
+      feedbackCard.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function hideReview() {
+      document.getElementById('gameplaySection').classList.add('hidden');
+      document.getElementById('backToResultsBtn').classList.add('hidden');
+      document.getElementById('resultsScreen').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showFinalResults() {
+      document.getElementById('gameplaySection').classList.add('hidden');
+      document.getElementById('topProgressBar').classList.add('hidden');
+      document.getElementById('resultsScreen').classList.remove('hidden');
+
+      document.getElementById('finalScoreText').innerText = `${userScore} / ${scenarios.length}`;
+
+      const levelText = document.getElementById('awarenessLevelText');
+      if (userScore === scenarios.length) {
+        levelText.innerText = "خبير أمني أسطوري 🛡️ (علامة كاملة 100%)";
+        levelText.className = "text-sm font-bold text-emerald-400";
+      } else if (userScore >= 4) {
+        levelText.innerText = "مستوى متقدم ومتميز ⚡";
+        levelText.className = "text-sm font-bold text-teal-300";
+      } else {
+        levelText.innerText = "يحتاج إلى مزيد من التدريب ⚠️";
+        levelText.className = "text-sm font-bold text-amber-400";
+      }
+
+      const breakdownContainer = document.getElementById('resultsBreakdown');
+      let breakdownHtml = `<div class="font-bold text-white mb-2">تفاصيل نتائج الاختبار:</div>`;
+
+      userAnswers.forEach((ans, idx) => {
+        const icon = ans.isCorrect 
+          ? `<i class="fa-solid fa-circle-check text-emerald-400 text-base mt-1"></i>` 
+          : `<i class="fa-solid fa-circle-xmark text-rose-400 text-base mt-1"></i>`;
+        
+        const statusBadge = ans.isCorrect 
+          ? `<span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold px-2 py-0.5 rounded whitespace-nowrap">إجابة صحيحة</span>`
+          : `<span class="bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[10px] font-bold px-2 py-0.5 rounded whitespace-nowrap">إجابة خاطئة</span>`;
+
+        breakdownHtml += `
+          <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
+            <div class="flex items-start sm:items-center gap-2.5">
+              ${icon}
+              <div>
+                <div class="font-bold text-white text-xs mb-1">سيناريو ${idx + 1}: ${ans.title}</div>
+                <div class="text-[11px] text-slate-400">الحقيقة: <b>${ans.actualIsReal ? 'موقع حقيقي' : 'موقع احتيالي'}</b></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-3 mt-2 sm:mt-0 pt-2 sm:pt-0 border-t sm:border-0 border-slate-800">
+               ${statusBadge}
+               <button onclick="reviewScenario(${idx})" class="bg-slate-700 hover:bg-slate-600 text-white font-bold text-[10px] px-3 py-1.5 rounded flex items-center gap-1 transition">
+                 <i class="fa-solid fa-eye"></i> مراجعة
+               </button>
+            </div>
+          </div>
+        `;
+      });
+
+      breakdownContainer.innerHTML = breakdownHtml;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function restartChallenge() {
+      document.getElementById('resultsScreen').classList.add('hidden');
+      document.getElementById('startScreen').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const startBtn = document.getElementById('startBtn');
+      if (startBtn) startBtn.addEventListener('click', startChallenge);
+
+      const btnReal = document.getElementById('btnReal');
+      if (btnReal) btnReal.addEventListener('click', () => makeDecision(true));
+
+      const btnFake = document.getElementById('btnFake');
+      if (btnFake) btnFake.addEventListener('click', () => makeDecision(false));
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) nextBtn.addEventListener('click', nextScenario);
+
+      const restartBtn = document.getElementById('restartBtn');
+      if (restartBtn) restartBtn.addEventListener('click', restartChallenge);
+    });
+  </script>
+</body>
+</html>
