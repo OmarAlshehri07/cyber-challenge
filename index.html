@@ -343,7 +343,7 @@
                         <div class="hidden md:flex items-center gap-1 text-slate-200">
                             <i class="fa-solid fa-location-dot"></i>
                             <div>
-                                <p class="text-[10px] text-slate-400 leading-none">التوصيل إلى جدة</p>
+                                <p class="text-[10px] text-slate-400 leading-none">التوصيل إلى مكة المكرمة</p>
                                 <p class="font-bold text-white leading-tight">المملكة العربية السعودية</p>
                             </div>
                         </div>
@@ -351,7 +351,7 @@
 
                     <div class="flex-grow max-w-2xl flex rounded overflow-hidden">
                         <button class="bg-slate-200 text-slate-700 px-2 py-1 text-xs font-bold border-l border-slate-300">الكل</button>
-                        <input type="text" value="آبل آيفون 18 برو ماكس (1 تيرابايت) - عنابي داكن" class="w-full px-2 py-1 text-xs text-slate-900 focus:outline-none" />
+                        <input type="text" value="iphone 18 pro max" class="w-full px-2 py-1 text-xs text-slate-900 focus:outline-none" />
                         <button class="bg-[#febd69] hover:bg-[#f3a847] text-slate-900 px-4">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
@@ -359,7 +359,7 @@
 
                     <div class="flex items-center gap-4 text-xs">
                         <div>
-                            <p class="text-[10px] text-slate-300">مرحباً عمر</p>
+                            <p class="text-[10px] text-slate-300">مرحباً </p>
                             <p class="font-bold">الحساب والقوائم</p>
                         </div>
                         <div>
@@ -376,6 +376,7 @@
                 <div class="bg-amazon-sub text-white text-[11px] px-4 py-1 flex items-center justify-between border-t border-slate-700">
                     <div class="flex items-center gap-4">
                         <span class="font-bold cursor-pointer"><i class="fa-solid fa-bars ml-1"></i> الكل</span>
+                        <span class="hover:underline cursor-pointer">أسعار منخفضة يومياً</span>
                         <span class="hover:underline cursor-pointer">عروض اليوم</span>
                         <span class="hover:underline cursor-pointer">خدمة العملاء</span>
                         <span class="hover:underline cursor-pointer font-bold text-[#febd69]">متجر آبل الرسمي</span>
@@ -385,12 +386,16 @@
             </header>
 
             <div class="border-b border-slate-200 py-1.5 px-6 bg-slate-50">
-                <div class="max-w-[1500px] mx-auto flex items-center gap-5 text-xs text-slate-700 font-bold">
-                    <span class="text-slate-900 font-black">iPhone</span>
+                <div class="max-w-[1500px] mx-auto flex items-center gap-5 text-xs text-slate-700 font-bold overflow-x-auto no-scrollbar">
+                    <span class="text-slate-900 font-black">iPhone Accessories</span>
+                    <span class="hover:text-amazon-link cursor-pointer">iPhone 16</span>
+                    <span class="hover:text-amazon-link cursor-pointer">iPhone 16 Plus</span>
+                    <span class="hover:text-amazon-link cursor-pointer">iPhone 17e</span>
+                    <span class="hover:text-amazon-link cursor-pointer">iPhone 17</span>
+                    <span class="hover:text-amazon-link cursor-pointer">iPhone Air</span>
                     <span class="hover:text-amazon-link cursor-pointer">iPhone 18 Pro</span>
                     <span class="text-amazon-link border-b-2 border-amber-600 pb-0.5">iPhone 18 Pro Max</span>
-                    <span class="hover:text-amazon-link cursor-pointer">iPhone 18</span>
-                    <span class="hover:text-amazon-link cursor-pointer">ملحقات آبل</span>
+                    <span class="hover:text-amazon-link cursor-pointer">iPhone Duo</span>
                 </div>
             </div>
 
@@ -406,37 +411,37 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+                    <!-- Image Gallery Column -->
                     <div class="lg:col-span-5 flex gap-2 order-1">
                         <div class="flex flex-col gap-1.5 shrink-0">
-                            <button onclick="switchImg(1)" class="w-10 h-12 border-2 border-amber-600 rounded overflow-hidden p-0.5 bg-white shadow-sm">
+                            <button onclick="switchImg(1)" class="w-12 h-14 border-2 border-amber-600 rounded overflow-hidden p-0.5 bg-white shadow-sm">
                                 <img src="https://m.media-amazon.com/images/I/71PvCbPVCEL._AC_SL1500_.jpg" class="w-full h-full object-contain" alt="معاينة 1">
                             </button>
-                            <button onclick="switchImg(2)" class="w-10 h-12 border border-slate-300 rounded overflow-hidden p-0.5 bg-white">
+                            <button onclick="switchImg(2)" class="w-12 h-14 border border-slate-300 rounded overflow-hidden p-0.5 bg-white">
                                 <img src="https://m.media-amazon.com/images/I/71CnsWldOtL._AC_SL1500_.jpg" class="w-full h-full object-contain" alt="معاينة 2">
                             </button>
                         </div>
 
-                        <div class="flex-grow bg-white border border-slate-200 rounded p-2 flex items-center justify-center min-h-[420px]">
+                        <div class="flex-grow bg-white border border-slate-200 rounded p-2 flex items-center justify-center min-h-[420px] relative">
                             <img id="mainImage" src="https://m.media-amazon.com/images/I/71PvCbPVCEL._AC_SL1500_.jpg" class="max-h-[400px] w-auto object-contain" alt="آيفون">
                         </div>
                     </div>
 
+                    <!-- Details Column -->
                     <div class="lg:col-span-4 space-y-2 order-2">
                         <div>
-                            <a href="#" class="text-xs font-bold text-amazon-link block">زيارة متجر Apple الرسمي</a>
+                            <a href="#" class="text-xs font-bold text-amazon-link block">قم بزيارة متجر Apple</a>
                             <h1 class="text-base font-bold text-slate-900 leading-snug mt-1">
-                                آبل آيفون 18 برو ماكس 1 تيرابايت من آبل - لون عنابي داكن (Burgundy Titanium)
+                                آيفون 18 برو ماكس 1 تيرابايت من آبل - لون عُنّابي
                             </h1>
                         </div>
 
                         <div class="flex items-center gap-1 text-xs">
-                            <span class="font-bold">4.9</span>
+                            <span class="font-bold">4.4</span>
                             <div class="flex text-amber-500 text-[10px]">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
                             </div>
-                            <a href="#" class="text-amazon-link">(1,842 تقييم)</a>
-                            <span class="text-slate-300">|</span>
-                            <span class="bg-slate-100 text-slate-800 text-[10px] px-1.5 py-0.5 rounded font-bold">الأكثر مبيعاً #1</span>
+                            <a href="#" class="text-amazon-link">(64)</a>
                         </div>
 
                         ${!isReal ? `<div class="bg-rose-50 border border-rose-200 p-2 rounded-lg flex items-center justify-between text-xs font-bold text-rose-700"><span>⚡ ينتهي العرض خلال: 03:45:12 ساعات</span>${discountBadge}</div>` : ''}
@@ -449,77 +454,143 @@
                                 <span class="text-xs font-bold text-slate-700"> ريال</span>
                                 ${!isReal ? `<span class="text-xs text-slate-400 line-through mr-2">${oldPriceVal} ريال</span>` : ''}
                             </div>
-                            <p class="text-[11px] text-slate-500">جميع الأسعار تشمل ضريبة القيمة المضافة (VAT 15%).</p>
-                            <p class="text-[11px] text-amazon-link font-bold"><i class="fa-solid fa-shield-halved ml-1"></i> ضمان لمدة سنتين من حاسبات العرب (الوكيل المعتمد).</p>
+                            <p class="text-[11px] text-slate-500">الأسعار تشمل ضريبة القيمة المضافة.</p>
                         </div>
 
                         <hr class="border-slate-200 my-1">
 
+                        <!-- Color Selector (Scenario 1 has prices, Scenario 2 is clean as requested) -->
                         <div class="space-y-1 text-xs">
-                            <p class="text-slate-600">اللون: <strong class="text-slate-900">عنابي داكن (Burgundy Titanium)</strong></p>
-                            <div class="flex items-center gap-1.5">
-                                <button class="p-1 rounded border-2 border-amber-600 bg-amber-50 flex items-center gap-1 font-bold text-[11px]">
-                                    <span class="w-3.5 h-3.5 rounded-full bg-[#4b222e] inline-block border"></span> عنابي داكن
-                                </button>
-                                <button class="p-1 rounded border border-slate-300 bg-white flex items-center gap-1 text-[11px] text-slate-700">
-                                    <span class="w-3.5 h-3.5 rounded-full bg-[#c5b4a5] inline-block border"></span> صحراوي
-                                </button>
+                            <p class="text-slate-600">اللون: <strong class="text-slate-900">بورغندي</strong></p>
+                            <div class="flex items-center gap-2">
+                                ${isReal ? `
+                                <button class="p-1 rounded border border-slate-300 bg-white flex flex-col items-center"><span class="w-6 h-6 rounded-full bg-white border inline-block"></span><span class="text-[9px] mt-0.5">9,099.00 ريال</span></button>
+                                <button class="p-1 rounded border border-slate-300 bg-white flex flex-col items-center"><span class="w-6 h-6 rounded-full bg-[#d0e1fd] border inline-block"></span><span class="text-[9px] mt-0.5">9,099.00 ريال</span></button>
+                                <button class="p-1 rounded border border-slate-300 bg-white flex flex-col items-center"><span class="w-6 h-6 rounded-full bg-[#3d3d3d] border inline-block"></span><span class="text-[9px] mt-0.5">8,999.00 ريال</span></button>
+                                <button class="p-1 rounded border-2 border-amber-600 bg-amber-50 flex flex-col items-center"><span class="w-6 h-6 rounded-full bg-[#522530] border inline-block"></span><span class="text-[9px] mt-0.5">9,099.00 ريال</span></button>
+                                ` : `
+                                <button class="p-1 rounded border border-slate-300 bg-white flex flex-col items-center"><span class="w-6 h-6 rounded-full bg-white border inline-block"></span></button>
+                                <button class="p-1 rounded border border-slate-300 bg-white flex flex-col items-center"><span class="w-6 h-6 rounded-full bg-[#d0e1fd] border inline-block"></span></button>
+                                <button class="p-1 rounded border border-slate-300 bg-white flex flex-col items-center"><span class="w-6 h-6 rounded-full bg-[#3d3d3d] border inline-block"></span></button>
+                                <button class="p-1 rounded border-2 border-amber-600 bg-amber-50 flex flex-col items-center"><span class="w-6 h-6 rounded-full bg-[#522530] border inline-block"></span></button>
+                                `}
                             </div>
                         </div>
 
-                        <div class="space-y-1 text-xs">
-                            <p class="text-slate-600">سعة التخزين: <strong class="text-slate-900">1 تيرابايت (1TB)</strong></p>
+                        <!-- Storage Selector -->
+                        <div class="space-y-1 text-xs pt-1">
+                            <p class="text-slate-600">الحجم: <strong class="text-slate-900">1TB</strong></p>
                             <div class="flex items-center gap-1.5">
-                                <button class="px-2 py-1 rounded border border-slate-300 bg-white text-[11px] text-slate-700">256GB</button>
-                                <button class="px-2 py-1 rounded border border-slate-300 bg-white text-[11px] text-slate-700">512GB</button>
-                                <button class="px-2 py-1 rounded border-2 border-amber-600 bg-amber-50 font-bold text-[11px] text-slate-900">1TB</button>
+                                <button class="px-3 py-1.5 rounded border border-slate-300 bg-white text-xs">512GB</button>
+                                <button class="px-3 py-1.5 rounded border border-slate-300 bg-white text-xs">256GB</button>
+                                <button class="px-3 py-1.5 rounded border border-slate-300 bg-white text-xs">2TB</button>
+                                <button class="px-3 py-1.5 rounded border-2 border-amber-600 bg-amber-50 font-bold text-xs">1TB</button>
                             </div>
                         </div>
 
-                        <div class="pt-2 text-[11px] space-y-1 text-slate-700">
-                            <div class="flex justify-between border-b pb-0.5"><span class="text-slate-500">حجم الشاشة:</span> <span class="font-bold">6.9 بوصة Super Retina XDR</span></div>
-                            <div class="flex justify-between border-b pb-0.5"><span class="text-slate-500">الشريحة:</span> <span class="font-bold">A18 Pro Bionic</span></div>
-                            <div class="flex justify-between border-b pb-0.5"><span class="text-slate-500">نظام الكاميرا:</span> <span class="font-bold">48MP Pro + تقريب 5x بصري</span></div>
+                        <!-- Edition Selector -->
+                        <div class="text-[11px] text-slate-700 pt-1">
+                            <span>الإصدار: </span><strong class="text-slate-900">بدون آبل كير+</strong>
                         </div>
+
+                        <hr class="border-slate-200 my-2">
+
+                        <!-- خيارات الشراء والسلع الإضافية (تظهر كاملة للسيناريو الأول وتقتصر على الضمان المجاني للثاني) -->
+                        <div class="border border-slate-200 rounded-xl p-3 bg-slate-50/50 space-y-3">
+                            <h3 class="font-black text-xs text-slate-900">خيارات الشراء والسلع الإضافية</h3>
+                            
+                            ${isReal ? `
+                            <!-- Trade-In Widget (Scenario 1 Only) -->
+                            <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex items-center justify-between text-xs">
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-amber-100 p-2 rounded text-amber-800"><i class="fa-solid fa-rotate"></i></div>
+                                    <div>
+                                        <p class="font-bold">Trade-In <span class="text-[10px] bg-emerald-100 text-emerald-800 px-1 rounded">وفر حتى 3,630.00 ريال</span></p>
+                                        <p class="text-[10px] text-slate-500">استبدل جهازك القديم ووفر عند شراء جهاز جديد.</p>
+                                    </div>
+                                </div>
+                                <button class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold px-3 py-1 rounded text-[11px]">عرف قيمة جهازك</button>
+                            </div>
+                            ` : ''}
+
+                            <!-- ضمان برامج أمازون -->
+                            <div class="space-y-2 pt-1">
+                                <p class="text-[11px] font-bold text-slate-800">قم بالإضافة برنامج ضمان:</p>
+                                
+                                <label class="flex items-start gap-2 bg-white border border-slate-200 p-2 rounded-lg cursor-pointer hover:bg-slate-50">
+                                    <input type="checkbox" ${!isReal ? 'checked' : ''} class="mt-0.5">
+                                    <div class="text-[11px] leading-tight">
+                                        <span class="font-bold text-slate-900">${isReal ? 'خططة ضمان ممتدة لمدة عامين للهاتف المحمول (من 9099.00 ريال سعودي إلى 9499.99 ريال) مقابل' : 'الضمان الممتد لمدة عامين للهاتف المحمول'}</span>
+                                        <span class="${isReal ? 'text-rose-600 font-black' : 'text-emerald-600 font-black mr-1'}">${isReal ? '499.00 ريال' : 'مجاني'}</span>
+                                        <span class="block text-[9px] text-slate-500 mt-0.5">(توصيل عبر البريد الإلكتروني إلى معرف البريد الإلكتروني الخاص بك من أمازون | لا يوجد توصيل فعلي)</span>
+                                    </div>
+                                </label>
+
+                                ${isReal ? `
+                                <label class="flex items-start gap-2 bg-white border border-slate-200 p-2 rounded-lg cursor-pointer hover:bg-slate-50">
+                                    <input type="checkbox" class="mt-0.5">
+                                    <div class="text-[11px] leading-tight">
+                                        <span class="font-bold text-slate-900">خطة حماية من الأضرار العرضية لمدة عام واحد، للهاتف المحمول مقابل </span>
+                                        <span class="text-rose-600 font-black">1,453.00 ريال</span>
+                                        <span class="block text-[9px] text-slate-500 mt-0.5">(توصيل رقمي عبر البريد الإلكتروني | لا يوجد توصيل فعلي)</span>
+                                    </div>
+                                </label>
+                                ` : ''}
+                            </div>
+                        </div>
+
                     </div>
 
+                    <!-- Buy Box Column (Right/Left Action Box) -->
                     <div class="lg:col-span-3 order-3">
-                        <div class="border border-amazon rounded-lg p-3 space-y-2 bg-white text-xs shadow-xs">
+                        <div class="border border-amazon rounded-lg p-3 space-y-2 bg-white text-xs shadow-xs sticky top-24">
                             <div class="text-2xl font-black text-slate-900">
                                 ${priceVal}<span class="text-xs font-normal"> ريال</span>
                             </div>
 
                             <div class="space-y-1">
-                                <p class="text-amazon-link font-bold">توصيل مجاني غداً</p>
-                                <p class="text-slate-600 text-[11px]">اطلب خلال <strong class="text-emerald-700">4 ساعات و10 دقائق</strong> لتستلم الشحنة غداً في جدة.</p>
+                                <p class="text-amazon-link font-bold">إرجاع مجاني</p>
+                                <p class="text-amazon-link font-bold">توصيل مجاني</p>
+                                <p class="text-slate-600 text-[11px]">التوصيل إلى <strong class="text-slate-900">مكة المكرمة </strong> - تحديث الموقع</p>
                                 ${stockWarning}
                             </div>
 
-                            <div class="bg-emerald-50 border border-emerald-200 rounded p-2 text-[10px] space-y-1 text-slate-800">
-                                <p class="font-bold text-emerald-900"><i class="fa-solid fa-lock text-emerald-700 ml-1"></i> معاملات آمنة ومحمية</p>
-                                <p class="text-slate-600">الدفع آمن عبر مدى، فيزا، Apple Pay المعترف بها.</p>
-                            </div>
-
-                            <div class="space-y-1.5 pt-1">
+                            <div class="space-y-1.5 pt-2">
                                 <button class="w-full btn-amazon-yellow font-bold py-2 px-3 rounded-full shadow-sm text-xs border">إضافة إلى عربة التسوق</button>
                                 <button class="w-full btn-amazon-orange font-bold py-2 px-3 rounded-full shadow-sm text-xs border">اشتري الآن</button>
                             </div>
 
                             <div class="text-[10px] text-slate-600 space-y-1 pt-2 border-t border-slate-200">
-                                <div class="flex justify-between"><span>يشحن من:</span> <span class="font-bold text-slate-800">${sellerVal}</span></div>
-                                <div class="flex justify-between"><span>يباع من:</span> <span class="font-bold text-amazon-link">${sellerVal}</span></div>
-                                <div class="flex justify-between"><span>سياسة الإرجاع:</span> <span class="font-bold text-amazon-link">قابل للإرجاع خلال 15 يوماً</span></div>
+                                <div class="flex justify-between"><span>الشحن من:</span> <span class="font-bold text-slate-800">${sellerVal}</span></div>
+                                <div class="flex justify-between"><span>البائع:</span> <span class="font-bold text-amazon-link">${sellerVal}</span></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-8 border-t border-slate-200 pt-4 max-w-5xl">
+                <!-- Product Specifications Table matching image -->
+                <div class="mt-8 border-t border-slate-200 pt-6 max-w-5xl">
+                    <h2 class="text-sm font-bold text-slate-900 mb-3">المواصفات الأساسية</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-xs bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <div class="flex justify-between border-b pb-1.5"><span class="text-slate-500">العلامة التجارية:</span> <span class="font-bold">آبل</span></div>
+                        <div class="flex justify-between border-b pb-1.5"><span class="text-slate-500">أنظمة التشغيل:</span> <span class="font-bold">اي او اس 27</span></div>
+                        <div class="flex justify-between border-b pb-1.5"><span class="text-slate-500">حجم ذاكرة رام المثبت:</span> <span class="font-bold">1 تيرابايت</span></div>
+                        <div class="flex justify-between border-b pb-1.5"><span class="text-slate-500">سعة التخزين في الذاكرة:</span> <span class="font-bold">1 تيرابايت</span></div>
+                        <div class="flex justify-between pb-1.5"><span class="text-slate-500">حجم الشاشة:</span> <span class="font-bold">6.9 انش</span></div>
+                    </div>
+                </div>
+
+                <!-- Product Details Bullet Points -->
+                <div class="mt-6 border-t border-slate-200 pt-4 max-w-5xl">
                     <h2 class="text-sm font-bold text-slate-900 mb-2">عن هذه السلعة:</h2>
                     <ul class="list-disc list-inside text-xs text-slate-700 space-y-1.5 leading-relaxed">
-                        <li><strong class="text-slate-900">تصميم خفيف وقوي من التيتانيوم:</strong> يتميز آيفون 18 برو ماكس بهيكل متين وفاخر من التيتانيوم.</li>
-                        <li><strong class="text-slate-900">شاشة مقاس 6.9 بوصة بلا حدود:</strong> شاشة Super Retina XDR مع تكنولوجيا ProMotion بمعدل 120Hz.</li>
-                        <li><strong class="text-slate-900">شريحة A18 Pro الفائقة:</strong> أداء عالي للألعاب الثقيلة ومميزات الذكاء الاصطناعي.</li>
+                        <li><strong>أربعة ألوان رائعة:</strong> تصميم متين يدوم طويلاً - مصنوع بهيكل موحد من الألومنيوم مع زجاج خلفي متناسق اللون لإضفاء مظهر أكثر تجانساً.</li>
+                        <li><strong>شاشة احترافية غامرة:</strong> شاشة سوبر ريتينا اكس دي ري از مقاس 6.9 بوصات. أكثر إشراقاً. خصائص أفضل لمقاومة الانعكاس. تقنية برو موشن بمعدل تحديث يصل إلى 120 هرتز.</li>
+                        <li><strong>درع سيراميك متين:</strong> الواجهة الأمامية والخلفية؛ مصممتان لتدوم طويلاً، بفضل درع السيراميك في الجهة الخلفية ودرع السيراميك 2 في الجهة الأمامية، الذي يوفر مقاومة للخدوش أفضل بثلاث مرات مقارنة بـ آيفون 16 برو.</li>
+                        <li><strong>نظام كاميرا التيميت برو:</strong> حيث يتضمن كاميرا رئيسية بدقة 48 ميجابكسل بفتحة عدسة متغيرة لتحسين جودة الصور ومقاطع الفيديو في الإضاءة المنخفضة وعمق مجال مذهل. عناصر تحكم برو مخصصة وتقريب بجودة بصري يصل إلى 8 أضعاف.</li>
+                        <li><strong>كاميرا أمامية مركزية بدقة 18 ميجابكسل:</strong> خيارات مرنة لتأطير صورتك. تتسع لعدد أكبر من الأشخاص في الصورة. تصوير فيديو مزدوج بالكاميرتين الأمامية والخلفية، وغيرها...</li>
+                        <li><strong>شريحة A20 برو:</strong> قوة هائلة مدعومة بالذكاء الاصطناعي — مزود بغرفة تبخير من الجيل التالي ومحرك عصبي مزدوج نواة. أداء وحدة معالجة الرسومات الجرافيكية أفضل بنسبة تصل إلى 40% مقارنة بآيفون 17 برو ماكس. مصمم خصيصاً للذكاء الاصطناعي.</li>
+                        <li><strong>قفزة هائلة في عمر البطارية:</strong> تشغيل الفيديو لمدة تصل إلى 6 ساعات إضافية مقارنة بـ آيفون 17 برو ماكس. ما يصل إلى 30 ساعة من الاستخدام لكل شحنة. شحن سلكي أسرع، يصل إلى 50% خلال نحو 15 دقيقة عند استخدام محول طاقة متوافق.</li>
                     </ul>
                 </div>
             </main>
@@ -650,8 +721,10 @@
                 <button onclick="jadaratGoToJobs()" class="text-emerald-700 font-bold text-xs hover:underline flex items-center gap-1"><span>عرض الكل</span> <i class="fa-solid fa-arrow-left"></i></button>
               </div>
               <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white border-2 border-slate-200 rounded-2xl p-5 shadow-sm hover:border-emerald-600 transition space-y-3 cursor-pointer" onclick="jadaratSelectComputerScienceJob()">
-                  <div class="flex items-center justify-between text-xs text-slate-500">
+                <!-- بطاقة الوظيفة مع تأثير النبض لجذب الانتباه -->
+                <div class="bg-white border-2 border-emerald-500 rounded-2xl p-5 shadow-lg hover:border-emerald-700 transition space-y-3 cursor-pointer relative overflow-hidden ring-4 ring-emerald-500/20 animate-pulse" onclick="jadaratSelectComputerScienceJob()">
+                  <div class="absolute -top-1 -right-1 bg-emerald-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-bl-lg">وظيفة مقترحة لتخصصك</div>
+                  <div class="flex items-center justify-between text-xs text-slate-500 pt-1">
                     <span class="bg-slate-100 text-slate-800 px-2 py-0.5 rounded font-bold">قطاع خاص</span>
                     <span>دوام كامل</span>
                   </div>
@@ -663,9 +736,12 @@
                   </div>
                   <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
                     <span class="text-xs font-bold text-emerald-700">الراتب: 12,500 ريال</span>
-                    <button class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-1.5 rounded-lg text-xs">استعراض التفاصيل</button>
+                    <button class="bg-emerald-600 hover:bg-emerald-700 text-white font-black px-4 py-2 rounded-lg text-xs shadow-md animate-bounce">
+                      <i class="fa-solid fa-hand-pointer ml-1"></i> استعراض التفاصيل
+                    </button>
                   </div>
                 </div>
+
                 <div class="bg-white border-2 border-slate-200 rounded-2xl p-5 shadow-sm transition space-y-3 opacity-75">
                   <div class="flex items-center justify-between text-xs text-slate-500">
                     <span class="bg-slate-100 text-slate-800 px-2 py-0.5 rounded font-bold">قطاع خاص</span>
@@ -716,7 +792,7 @@
               <span class="bg-slate-100 text-slate-700 px-4 py-2 rounded-xl cursor-pointer hover:bg-slate-200">علوم الحاسب</span>
             </div>
             <div class="grid grid-cols-1 gap-4">
-              <div class="bg-white border-2 border-emerald-600 rounded-2xl p-6 shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div class="bg-white border-2 border-emerald-600 rounded-2xl p-6 shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4 ring-4 ring-emerald-500/20 animate-pulse">
                 <div class="space-y-2">
                   <div class="flex items-center gap-2 text-xs">
                     <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">رسمية ومعتمدة</span>
@@ -726,8 +802,8 @@
                   <p class="text-xs text-slate-600">شركة التقنية المتقدمة للحلول الرقمية | مدينة جدة | الراتب: 12,500 ريال</p>
                   <p class="text-[11px] text-emerald-700 font-bold"><i class="fa-solid fa-circle-check ml-1"></i> تتطلب درجة البكالوريوس في علوم الحاسب أو تقنية المعلومات.</p>
                 </div>
-                <button onclick="jadaratSelectComputerScienceJob()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-black px-6 py-3 rounded-xl text-xs shadow-lg shrink-0">
-                  عرض تفاصيل الوظيفة الرسمية
+                <button onclick="jadaratSelectComputerScienceJob()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-black px-6 py-3 rounded-xl text-xs shadow-lg shrink-0 animate-bounce">
+                  <i class="fa-solid fa-hand-pointer ml-1"></i> عرض تفاصيل الوظيفة الرسمية
                 </button>
               </div>
             </div>
@@ -1130,8 +1206,8 @@
             <div class="bg-white py-12 px-4 border-b border-slate-100">
               <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div class="space-y-4">
-                  <span class="text-teal-700 font-bold">سبيلك للعالم | سبيلك للعالم</span>
-                  <h1 class="text-3xl font-black text-slate-900">سبيك للعالم</h1>
+                  <span class="text-teal-700 font-bold">سبيلك للعالم</span>
+                  <h1 class="text-3xl font-black text-slate-900">سبيلك للعالم</h1>
                   <p class="text-xs text-slate-600">أهلاً بك في البريد السعودي | سبل</p>
                   
                   <div class="bg-white border border-slate-300 rounded-2xl p-4 shadow-xl space-y-3">
@@ -1150,7 +1226,7 @@
                 <div class="flex justify-center">
                   <div class="bg-gradient-to-tr from-teal-50 to-slate-100 p-8 rounded-3xl border border-slate-200 text-center shadow-inner">
                     <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="شحن" class="rounded-2xl max-h-64 object-cover shadow-md mx-auto">
-                    <p class="font-bold text-slate-800 mt-3">كل السبل تؤدي إليك .. سبيِلك للعالم</p>
+                    <p class="font-bold text-slate-800 mt-3">كل السبل تؤدي إليك .. سبيلك للعالم</p>
                   </div>
                 </div>
               </div>
@@ -1284,7 +1360,6 @@
         id: 7,
         title: "السيناريو المتقدم: سداد المخالفات المرورية وإيقاف الخدمات",
         isReal: false,
-        // الرابط الصحيح بالكامل مع تعديل خفي ودقيق في كلمة efaa فقط (مثل ef-aa.sa أو استخدام حرف e mكرر أو تغيير حرف خفي في efaa)
         urlDisplay: `<i class="fa-solid fa-lock text-emerald-600 text-xs"></i> <span class="text-slate-800 font-bold">https://efaa-gov.sa</span>/traffic-violation/pay`,
         renderHtml: getEfaaFakeHtml(),
         explanation: {
